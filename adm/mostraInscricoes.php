@@ -94,7 +94,7 @@ $listaInscricoes = $daoInscricoes->buscarTodos();
 
                                 echo '<td>';
                                 echo "<div class='btn-group'>";
-                                echo '<a href="videos.php?id=' . $insc->getId() . '" class="btn btn-info btn-sm"  >';
+                                echo '<a href="#?id=' . $insc->getId() . '" class="btn btn-info btn-sm"  >';
                                 echo '<span class="glyphicon glyphicon-search"></span>';
                                 echo '</a>';
                                 echo "</div>";

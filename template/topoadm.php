@@ -47,7 +47,7 @@
 
                                 <ul class="nav navbar-nav navbar-right" >
                                     <li><a href="#"><span class="label" style="color: black;"><?php echo "Seja Bem vindo $logado"; ?></span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-share" data-toggle="modal"  data-target="#modalVideo" style="color: teal;">Adicionar Video</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-share" data-toggle="modal"  data-target="#modalUsuario" style="color: teal;">Adicionar Usuário</span></a></li>
                                     <li><a href="../visao/logout.php"><span class="glyphicon glyphicon-log-out" style="color: teal;">Sair</span></a></li>            
                                 </ul>
                             </div>

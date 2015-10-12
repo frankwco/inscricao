@@ -45,10 +45,7 @@ $videosDoUsuario = $daoModi->buscarPorAdm($idSelecionado);
                         <span class="glyphicon glyphicon-trash"></span>               
                         Deletar                       
                     </button> 
-                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalHistorico">
-                        <span class="glyphicon glyphicon-search"></span>               
-                        Histórico                       
-                    </button> 
+               
                 </div>
                 </center>
                     
