@@ -34,8 +34,8 @@ if($user->getId() > 0){
     
       
     echo "<script type='text/javascript'>";
-    
-        echo "location.href='http://localhost/inscricao/adm/principal.php';";
+
+        echo "location.href='/inscricao/adm/principal.php';";
 
     echo "</script>";   
 }
@@ -48,7 +48,7 @@ else
     echo "<script type='text/javascript'>";
     
         echo "alert('Login ou senha incorretos. Tente novamente.');";
-        echo "location.href='http://localhost/inscricao/index.php';";
+        echo "location.href='/inscricao/index.php';";
 
     echo "</script>";
   
