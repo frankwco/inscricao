@@ -7,8 +7,46 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <!-- VALIDADOR DE CPF -->
+        <script src="./resources/js/cpf.js"></script>
+        <script>
+        function vCPF(i){
+          i.setCustomValidity(validaCPF(i.value)?'':'CPF inválido!')
+        }
+        </script>
+        
+        <!-- CONTADOR -->
+        <!-- Our CSS stylesheet file -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+        <link rel="stylesheet" href="./assets/countdown/jquery.countdown.css" />
+        
+        <!-- CAPTCHA -->
+        <script type="text/javascript">
+        //Created / Generates the captcha function
+         function DrawCaptcha()
+          {
+          var a = Math.ceil(Math.random() * 6)+ '';
+          var b = Math.ceil(Math.random() * 6)+ '';
+          var c = Math.ceil(Math.random() * 6)+ '';
+          var d = Math.ceil(Math.random() * 6)+ '';
+          var e = Math.ceil(Math.random() * 6)+ '';
+          var f = Math.ceil(Math.random() * 6)+ '';
+          var g = Math.ceil(Math.random() * 6)+ '';
+          var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f ;
+          document.getElementById("txtCaptcha").value = code
+          }
+        </script>
+         <script type="text/javascript">
+        // Remove the spaces from the entered and generated code
+         function removeSpaces(string){
+          return string.split(' ').join('');
+         }
+        </script>
+
+        
     </head>
-    <body >
+    <body onload="DrawCaptcha();" >
         <div class="container-fluid " style="background-image: url(./resources/img/fundao.png); min-height: 100%; background-repeat: repeat;">
 
             <!-- Pagina do menubar -->
@@ -27,7 +65,7 @@
                             <div class="collapse navbar-collapse" id="navBarUser">
 
                                 <ul class="nav navbar-nav navbar-right" >
-                                    <li><a href="index.php"><span class="glyphicon glyphicon-home" style="color: teal;">Home</span></a></li>
+<!--                                    <li><a href="index.php"><span class="glyphicon glyphicon-home" style="color: teal;">Home</span></a></li>-->
                                     <li><a href="#"><span class="glyphicon glyphicon-share" data-toggle="modal"  data-target="#modalLogin" style="color: teal;">Entrar</span></a></li>
                                 </ul>
                             </div>
@@ -78,50 +116,25 @@
                                     </div>
 
                                 </div>
-                            </div>
-
-
-                            <!-- Modal -->
-                            <!--    <div id="modalMusica" class="modal fade" role="dialog">
-                                  <div class="modal-dialog">
-                                     Modal content
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Radio</h4>
-                                      </div>
-                                      <div class="modal-body">
-                                         <div style="background: url(resources/img/musica.jpg); background-size: cover; min-height: 50px; padding-bottom: 1%; padding-top: 1%; ">
-                                                  <center>
-                                                    <iframe src='http://player.dyb.fm/radiodyb?theme=miniColorful&backgroundColor=ffffff&chromeColor=1434b3&fontColor=ffffff&play=1'
-                                                    style='width:200px; height:80px;border:0;' frameborder='0' allowtransparency='true'></iframe>
-                                                  </center>
-                                        </div>  
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                      </div>
-                                    </div>
-                            
-                                  </div>
-                                </div>-->
-
-                        </div>
-                    </nav> 
+                            </div>                            
+                        </div>                   
+                    </nav>                  
                 </div>
             </div>  
 
-            <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+<!--            <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+                
+                <div class="col-md-1 col-sm-1 col-xs-1"></div>     
 
-                <div class="col-md-12 col-sm-12 col-xs-12">      
+                <div class="col-md-10 col-sm-10 col-xs-10">      
                     <div id="newbaCorousel" class="carousel slide" data-ride="carousel">
-                        <!-- Carousel indicators -->
+               
                         <ol class="carousel-indicators">
                             <li data-target="#newbaCorousel" data-slide-to="0" class="active"></li>
                             <li data-target="#newbaCorousel" data-slide-to="1"></li>
-                            <!--<li data-target="#newbaCorousel" data-slide-to="2"></li>-->
+                            <li data-target="#newbaCorousel" data-slide-to="2"></li>
                         </ol>   
-                        <!-- Wrapper for carousel items -->
+                    
                         <div class="carousel-inner">
                             <div class="item active">
                                 <img height="350" src="./resources/img/agiletourn.png" alt="Agile Tour 2015 - Paranavaí" class="img-rounded img-responsive" />
@@ -131,12 +144,12 @@
                                 <img height="350" src="./resources/img/agiletourn.png" alt="Semana da Informática 2015 - IFPR Paranavaí" class="img-rounded img-responsive" />
 
                             </div>
-<!--                            <div class="item">
+                            <div class="item">
                                 <img src="./resources/img/header3.png" alt="Newba Tutoriais e Dicas" class="img-rounded img-responsive" />
 
-                            </div>-->
+                            </div>
                         </div>
-                        <!-- Carousel controls -->
+                        
                         <a class="carousel-control left" href="#newbaCorousel" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
@@ -145,5 +158,8 @@
                         </a>
                     </div>
                 </div>
-            </div>
+                
+                <div class="col-md-1 col-sm-1 col-xs-1"></div>   
+                
+            </div>-->
 

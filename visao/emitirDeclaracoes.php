@@ -2,35 +2,29 @@
     <!-- COMENTARIO -->
     <div class="jumbotron" style="background: white; " >
 
-        <!--        <div class="jumbotron" style="background: white; border: 2px #0085C5 solid; " >
-        
-                    <div class="row">  
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-        
-                            <p style="color: graytext;">Organizado pelas comunidades ágeis locais, é um evento sem fins lucrativos e tem como principal missão criar lideranças em metodologias ágeis no mundo.</p>
-        
-                            <p style="color: graytext;">Também tem por objetivo promover uma comunicação em massa, compartilhando visões e casos de sucesso, incentivando a adoção dessas técnicas por grupos e empresas.</p>
-        
-                            <p style="color: graytext;">O planejamento prevê sessões bastante práticas utilizando workshops com convidados e ignite talks submetidos pela comunidade.</p>
-        
-                        </div> 
-                    </div>
-                </div>-->
 
+        <img src="./resources/img/bannerdeclaracao.png" style="max-height: 150px;" class="img-responsive" />    
+        <br />
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Emitir sua declarações de participação no(s) evento(s)</h3>
+        <div class="jumbotron" style="background: white; border: 2px #0085C5 solid;" >
+            
+            <h3 style="color: graytext;">
+                Emitir sua declarações de participação no(s) evento(s).
+            </h3>
+            <br />
+            
+            <div style="color: red; float: right;">
+                <label>* campos obrigatórios.</label>
             </div>
+            <br />
 
-            <div class="panel-body">
                 <form action="./visao/adicionarInscricao.php" method="POST" role="form" >
                     <input type="hidden" value="<?php echo $_SERVER['PHP_SELF'] ?>" name="urlatual" id="urlatual" />
 
 
                     <div class="form-group">
-                        <label  for="cpf">CPF:</label>
-                        <input type="text" required="true" placeholder="Insira seu CPF" class="form-control" id="cpf" name="cpf" />
+                        <label  for="cpf">CPF (Somente numeros):</label>
+                        <input type="text" required="true" oninput="vCPF(this)" placeholder="Insira seu CPF" class="form-control" id="cpf" name="cpf" />
                     </div>
 
                     <div class="form-group">
@@ -57,10 +51,10 @@
                                 Limpar</button>                        
                         </div>
                     </center>
-                </form>              
-            </div>
-
+                </form>  
         </div>
+            
+
     </div>
 
 </div>

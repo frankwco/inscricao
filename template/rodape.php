@@ -2,7 +2,7 @@
     <div class="row">
     <div class="col-md-12">
         
-        <p style="text-align: center;">????????????????????. </p>
+        <p style="text-align: center;">Todos os direitos reservados - 2015</p>
         
 
    

@@ -37,9 +37,9 @@ class Conexao {
         //método que conecta com o banco de dados
         public function conectar() {
             try {
-                $this->pdo = new PDO("mysql:host=localhost;dbname=u105383897_inscr",
-                                "u105383897_root",
-                                "356845",
+                $this->pdo = new PDO("mysql:host=localhost;dbname=baseinscricaoevento",
+                                "root",
+                                "",
                                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
                 
 //                $this->pdo = new PDO("mysql:host=localhost;dbname=baseinscricaoevento",

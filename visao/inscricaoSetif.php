@@ -2,37 +2,57 @@
     <!-- COMENTARIO -->
     <div class="jumbotron" style="background: white; " >
 
-<!--                        <div class="jumbotron" style="background: white; border: 2px #0085C5 solid; " >
-        
-                            <div class="row">  
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <center>
-                                        <img src="resources/img/newba.jpg" style="max-height: 300px;" class="img-responsive" />
-                                    </center>
-        
-                                    <br />
-        
-                                    <center>
-                                        <h3 style="color: graytext;">Tem dúvida sobre algo? Não perca tempo, nos mande ou deixe sua sugestão!</h3>  <br />
-                                        <a href="#" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-envelope"></span> Enviar</a>
-                                    </center>
-        
-                                </div> 
-                            </div>
-                        </div>-->
+
+                <img src="./resources/img/oquee2.png" style="max-height: 150px;" class="img-responsive" />    
+                <br />
+
+
                         <div class="jumbotron" style="background: white; border: 2px #0085C5 solid; " >
         
                             <div class="row">  
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <center>
+<!--                                    <center>
                                         <img src="resources/img/setif.png" style="max-height: 300px;" class="img-responsive" />
                                     </center>
+        -->
+        
+         <div id="newbaCorousel2" class="carousel slide" data-ride="carousel">
+               
+                        <ol class="carousel-indicators">
+                            <li data-target="#newbaCorousel2" data-slide-to="0" class="active"></li>
+                            <li data-target="#newbaCorousel2" data-slide-to="1"></li>
+                        </ol>   
+                    
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <center>
+                                    <img style="max-height: 350px;"  src="./resources/img/slidesetif.png" alt="SETIF - Semana de Tecnologia da Informação" class="img-rounded img-responsive" />
+                                </center>
+                            </div>
+                            <div class="item">
+                                <center>
+                                    <img style="max-height: 350px;"  src="./resources/img/slidesetif2.png" alt="I Semana de Tecnologia da Informação" class="img-rounded img-responsive" />
+                                </center>
+                            </div> 
+                        </div>
+                        
+                        <a class="carousel-control left" href="#newbaCorousel2" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="carousel-control right" href="#newbaCorousel2" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+         </div>
+        
         
                                     <br />
         
                                     <center>
-                                        <h3 style="color: graytext;">Acho legal colocar alguma coisa relacionado à SETIF, para diferenciar as páginas de inscrições e também divulgar o evento!! O que acham de colocar a programação????</h3>  <br />
+                                        <h4 style="color: graytext;">Acho legal colocar alguma coisa relacionado à SETIF, para diferenciar as páginas de inscrições e também divulgar o evento!! O que acham de colocar a programação????</h4>  <br />
                                    </center>
+                                    
+                                    <hr />
+                                    <h1>CONTINUAÇÃO</h1>
         
                                 </div> 
                             </div>
@@ -40,12 +60,23 @@
         
         
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Faça sua inscrição para o Setif 2015 - IFPR Paranavaí</h3>
-            </div>
 
-            <div class="panel-body">
+        <img src="./resources/img/bannerinscricao.png" style="max-height: 150px;" class="img-responsive" />    
+        <br />
+
+        <div class="jumbotron" style="background: white; border: 2px #0085C5 solid;" >
+            
+            <h3 style="color: graytext;">
+                Faça sua inscrição para o Setif 2015 - Paranavaí - Contamos com sua presença!
+            </h3>
+            <br />
+            
+            <div style="color: red; float: right;">
+                <label>* Campos obrigatórios.</label>
+            </div>
+            <br />
+
+
                 <form action="./visao/adicionarInscricao.php" method="POST" role="form" >
                     <input type="hidden" value="2" name="idEvento" id="idEvento" />
                     <input type="hidden" value="<?php echo $_SERVER['PHP_SELF'] ?>" name="urlatual" id="urlatual" />
@@ -53,46 +84,42 @@
 
 
                     <div class="form-group">
-                        <label  for="nome">Nome:</label>
+                        <label  for="nome">*Nome:</label>
                         <input type="text" required="true" placeholder="Insira seu Nome" class="form-control" id="nome" name="nome" />
                     </div>
 
                     <div class="form-group">
-                        <label  for="cpf">CPF:</label>
-                        <input type="text" required="true" placeholder="Insira seu CPF" class="form-control" id="cpf" name="cpf" />
+                        <label  for="cpf">*CPF (Somente numeros):</label>
+                        <input type="text" required="true" oninput="vCPF(this)" placeholder="Insira seu CPF" class="form-control" id="cpf" name="cpf" />
                     </div>
 
                     <div class="form-group">
-                        <label  for="email">E-mail:</label>
+                        <label  for="email">*E-mail:</label>
                         <input type="email" required="true" placeholder="Insira seu E-mail" class="form-control" id="email" name="email" />
                     </div>
 
                     <div class="form-group">
-                        <label  for="ra">Ra:</label>
+                        <label  for="ra">*Ra:</label>
                         <input type="text" required="true" placeholder="Insira seu RA" class="form-control" id="ra" name="ra" />
                     </div>
 
                     <div class="form-group">
-                        <label  for="telefone1">Telefone 1:</label>
+                        <label  for="telefone1">*Telefone 1:</label>
                         <input type="text" required="true" placeholder="Insira seu Telefone" class="form-control" id="telefone1" name="telefone1" />
                     </div>
-<!--
-                    <div class="form-group">
-                        <label  for=instituicaoOrganizacao">Instituição/Organização</label>
-                        <input type="text" required="true" placeholder="Insira o Nome da Instituição e/ou Organização" class="form-control" id="instituicaoOrganizacao" name="instituicaoOrganizacao" />
-                    </div>-->
+
 
                     <div class="form-group">
-                        <label for="curso">Selecione um Curso:</label>
-                        <select class="form-control" name="curso" id="curso">
+                        <label for="curso">*Selecione um Curso:</label>
+                        <select required="true" class="form-control" name="curso" id="curso">
                             <option value="Tecnologia em Análise e Desenvolvimento de Sistemas">Tecnologia em Análise e Desenvolvimento de Sistemas</option>
                             <option value="Técnico em Informática Integrado">Técnico em Informática Integrado</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="serie">Selecione uma Série:</label>
-                        <select class="form-control" name="serie" id="serie">
+                        <label for="serie">*Selecione uma Série:</label>
+                        <select required="true" class="form-control" name="serie" id="serie">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -100,17 +127,6 @@
                         </select>
                     </div>
 
-
-
-                    <!--                    <div class="form-group">
-                                            <label  for="estudante">Estudante:</label>
-                                            <div class="radio">
-                                                <label><input  type="radio" name="estudante" value="sim">Sim</label>
-                                            </div>
-                                            <div class="radio">
-                                                <label><input type="radio" name="estudante" value="não">Não</label>
-                                            </div>
-                                        </div>-->
 
                     <center>
                         <div class="btn-group">
@@ -122,11 +138,31 @@
                                 Limpar</button>                        
                         </div>
                     </center>
-                </form>              
-            </div>
-
-
+                </form>    
+            
         </div>
+ 
+        <br />
+        
+        <img src="resources/img/bannerlocalizacao.png" style="max-height: 150px;" class="img-responsive" />    
+        <br />
+                
+                <div class="jumbotron" style="background: white; border: 2px #0085C5 solid;"  >
+                
+               
+                    <h3 style="color: graytext;">
+                         O evento acontecerá nas dependencias do IFPR.
+                    </h3>
+                    <br />
+                
+                <center>
+                    
+                    <div class="embed-responsive embed-responsive-16by9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.160084763484!2d-52.45506965018148!3d-23.054591884862884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x949296a3b9f85545%3A0xba25df5e12175a0b!2sInstituto+Federal+do+Paran%C3%A1!5e0!3m2!1spt-BR!2sus!4v1444614048225" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    
+                </center>
+                </div>
 
 
     </div>

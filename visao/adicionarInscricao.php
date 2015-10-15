@@ -91,6 +91,7 @@ try {
     echo "location.href='" . $url . "';";
 
     echo "</script>";
+    
 } catch (Exception $erro) {
 
     // print($erro);
