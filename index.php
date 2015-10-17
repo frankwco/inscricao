@@ -52,9 +52,6 @@
                 <div class="btn-group" role="group">
                     <button id="btnPainelVideoBemVindo" type="button" class="btn btn-primary btn-lg">Agile Tour</button>
                 </div>
-<!--                <div class="btn-group" role="group">
-                    <button type="button" id="btnPainelTopVideos" class="btn btn-success btn-lg">Inscrição Agile Tour</button>
-                </div>-->
                 <div class="btn-group" role="group">
                     <button type="button" id="btnPainelLancametos" class="btn btn-info btn-lg">SETIF</button>
                 </div>
@@ -80,7 +77,7 @@
             <div class="jumbotron" style="background: white; " >
                 
                 
-                <div class="jumbotron" style="background: white; border: 2px red solid; " >   
+                <div class="jumbotron" style="background: white;" >   
                 <center>
                     <img src="resources/img/data.png" style="max-height: 300px;" class="img-responsive" />      
                 </center>
@@ -92,7 +89,7 @@
                 <br />
                 <div id="countdown"></div>
                 <br />
-                <hr />
+               
                             <center>
                                 <img src="resources/img/agileeufui.png" style="max-height: 400px;" class="img-responsive" /> 
                             </center>
@@ -219,6 +216,35 @@
                                 <th></th>
                            </tr>
                    
+                        </table>  
+                        <br />
+                        
+                         <table class="table table-striped" style="color: graytext;">
+                            <tr>
+                                <th style="color: dodgerblue">HORA</th>
+                                <th style="color: dodgerblue">TEMA</th>
+                                <th style="color: dodgerblue">PALESTRANTE</th>
+                           </tr>
+                           <tr>
+                                <th>0:00</th>
+                                <th>Jira Orientado a SCRUM</th>
+                                <th>Réryka Rúbia</th>
+                           </tr>
+                           <tr>
+                                <th>0:00</th>
+                                <th>TEMA</th>
+                                <th>Juliano Ribeiro</th>
+                           </tr>
+                           <tr>
+                                <th>0:00</th>
+                                <th>TEMA</th>
+                                <th>X</th>
+                           </tr>
+                           <tr>
+                                <th>0:00</th>
+                                <th>TEMA</th>
+                                <th>X</th>
+                           </tr>                                      
                         </table>  
                             <hr />
                             <center>

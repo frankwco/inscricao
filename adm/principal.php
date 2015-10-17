@@ -8,22 +8,25 @@
     <div class="jumbotron" style=" background: white; " >
     <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-       <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Administrar</h3>
-                    </div>
-                    <div class="panel-body">
+        
+                            <center>
+                                <h1 style="color: dodgerblue">Administração</h1>
+                            </center>
+                        <hr />
                         <center>
-                            <!--<img  src="../resources/img/engrenagem.png" alt="Administrar" class="img-responsive" />-->
                         <br/>
-                        Administração dos dados
+                        <h2 style="color: graytext;">
+                            Opções:
+                        </h2>
                         <br/>
                         <br/>
-                        <a href="administrar.php" class="btn btn-info btn-lg">Administrar</a>
+                        <a href="administrar.php" class="btn btn-info btn-lg">Administradores</a>
                         <a href="mostraInscricoes.php" class="btn btn-info btn-lg">Inscrições</a>
+                        <a href="mostraEventos.php" class="btn btn-info btn-lg">Eventos</a>
                         </center>
-                    </div>
-       </div>     
+ 
+        
+        
     </div>
 
     </div> 

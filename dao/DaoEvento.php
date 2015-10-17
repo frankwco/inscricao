@@ -1,11 +1,11 @@
 <?php
 
 
-class DaoModificacao{
+class DaoEvento{
     
     private $pdo;
             
-    function  DaoModificacao(){
+    function  DaoEvento(){
         
         $this->pdo = new Conexao();
         $this->pdo = $this->pdo->getPdo();
@@ -16,7 +16,7 @@ class DaoModificacao{
     public function getNextID(){
         try{
             
-            $sql = "SELECT Auto_increment FROM information_schema.tables WHERE table_name='modificacao'";
+            $sql = "SELECT Auto_increment FROM information_schema.tables WHERE table_name='tabevento'";
             $result = $this->pdo->query($sql);
             $final_result = $result->fetch(PDO::FETCH_ASSOC); 
             return $final_result['Auto_increment'];
@@ -29,34 +29,31 @@ class DaoModificacao{
     }
 
 
-    public function inserir(Modificacao $modi){
+    public function inserir(Evento $modi){
         try{
             
             
             
-            $sql = "INSERT INTO modificacao ("
-                    . "titulo,"
-                    . "texto,"
-                    . "video,"
-                    . "tipo,"
-                    . "html,"
-                    . "idAdm"
+            $sql = "INSERT INTO tabevento ("
+                    . "dataEvento,"
+                    . "descricao,"
+                    . "limiteVagas,"
+                    . "quantidadeHoras,"
+                    . "status"
                     . ") VALUES ("
-                    . ":titulo,"
-                    . ":texto,"
-                    . ":video,"
-                    . ":tipo,"
-                    . ":html,"
-                    . ":idAdm)";
+                    . ":dataEvento,"
+                    . ":descricao,"
+                    . ":limiteVagas,"
+                    . ":quantidadeHoras,"
+                    . ":status)";
             
             $p_sql = $this->pdo->prepare($sql);
             
-            $p_sql -> bindValue(":titulo", $modi->getTitulo());
-            $p_sql -> bindValue(":texto", $modi->getTexto());
-            $p_sql -> bindValue(":video", $modi->getVideo());
-            $p_sql -> bindValue(":tipo", $modi->getTipo());
-            $p_sql -> bindValue(":html", $modi->getHtml());
-            $p_sql -> bindValue(":idAdm", $modi->getIdAdm());
+            $p_sql -> bindValue(":dataEvento", $modi->getDataEnvio());
+            $p_sql -> bindValue(":descricao", $modi->getDescricao());
+            $p_sql -> bindValue(":limiteVagas", $modi->getLimiteVagas());
+            $p_sql -> bindValue(":quantidadeHoras", $modi->getQuantidadeHoras());
+            $p_sql -> bindValue(":status", $modi->getStatus());
           
    
             
@@ -72,15 +69,16 @@ class DaoModificacao{
         
     }
     
-    public function atualizar(Modificacao $modi) { 
+    public function atualizar(Evento $modi) { 
         try { 
-            $sql = "UPDATE modificacao SET titulo = :titulo, texto = :texto, video = :video, tipo = :tipo WHERE id = :id"; 
+            $sql = "UPDATE tabvento SET dataEvento = :dataEvento, descricao = :descricao, limiteVagas = :limitevagas, quantidadeHoras = :quantidadeHoras, status = :status WHERE idEvento = :idEvento"; 
             $p_sql = $this->pdo->prepare($sql); 
-            $p_sql -> bindValue(":titulo", $modi->getTitulo());
-            $p_sql -> bindValue(":texto", $modi->getTexto());
-            $p_sql -> bindValue(":video", $modi->getVideo());
-            $p_sql -> bindValue(":tipo", $modi->getTipo());
-            $p_sql->bindValue(":id", $modi->getId()); 
+            $p_sql -> bindValue(":dataEvento", $modi->getDataEnvio());
+            $p_sql -> bindValue(":descricao", $modi->getDescricao());
+            $p_sql -> bindValue(":limiteVagas", $modi->getLimiteVagas());
+            $p_sql -> bindValue(":quantidadeHoras", $modi->getQuantidadeHoras());
+            $p_sql -> bindValue(":status", $modi->getStatus());
+            $p_sql->bindValue(":idEvento", $modi->getId()); 
             return $p_sql->execute(); 
             
         } catch (Exception $e) { 
@@ -98,9 +96,9 @@ class DaoModificacao{
         
         try{
             
-            $sql = "DELETE FROM modificacao WHERE id = :id";
+            $sql = "DELETE FROM tabevento WHERE idEvento = :idEvento";
             $p_sql  = $this->pdo->prepare($sql);
-            $p_sql -> bindValue(":id", $id);
+            $p_sql -> bindValue(":idEvento", $id);
             
             return $p_sql->execute();
      
@@ -120,12 +118,12 @@ class DaoModificacao{
         
            try{
             
-            $sql = "SELECT * FROM modificacao WHERE id = :id";
+            $sql = "SELECT * FROM tabevento WHERE idEvento = :idEvento";
             $p_sql = $this->pdo->prepare($sql);
-            $p_sql -> bindValue(":id", $id);
+            $p_sql -> bindValue(":idEvento", $id);
             $p_sql->execute();
             
-             return $this->populaModificacao($p_sql->fetch(PDO::FETCH_ASSOC));
+             return $this->populaEvento($p_sql->fetch(PDO::FETCH_ASSOC));
            
               }       
         catch (Exception $e){
@@ -141,12 +139,12 @@ class DaoModificacao{
         
            try{
             
-            $sql = "SELECT * FROM modificacao WHERE titulo = :titulo";
+            $sql = "SELECT * FROM tabevento WHERE descricao = :descricao";
             $p_sql = $this->pdo->prepare($sql);
-            $p_sql -> bindValue(":titulo", $titulo);
+            $p_sql -> bindValue(":descricao", $titulo);
             $p_sql->execute();
             
-             return $this->populaModificacao($p_sql->fetch(PDO::FETCH_ASSOC));
+             return $this->populaEvento($p_sql->fetch(PDO::FETCH_ASSOC));
            
               }       
         catch (Exception $e){
@@ -158,47 +156,20 @@ class DaoModificacao{
     
      } 
      
-     
-      public function buscarPorAdm($idAdm){
-        
-           try{
-            
-            $sql = "SELECT * FROM modificacao WHERE idAdm = :idAdm";
-            $p_sql = $this->pdo->prepare($sql);
-            $p_sql -> bindValue(":idAdm", $idAdm);
-            $p_sql->execute();
-            $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);
-            $f_lista = array();
-            
-            foreach ($lista as $l){
-                $f_lista[] = $this->populaModificacao($l);
-            }
-           
-            
-             return $f_lista;
-           
-              }       
-        catch (Exception $e){
-     
-     print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde."; 
-     
-     
- }
-    
-     } 
+  
      
     
     public function buscarTodos(){
         
            try{
             
-            $sql = "SELECT * FROM modificacao ORDER BY id";
+            $sql = "SELECT * FROM tabevento ORDER BY idEvento";
             $result = $this->pdo->query($sql);
             $lista = $result->fetchAll(PDO::FETCH_ASSOC);
             $f_lista = array();
             
             foreach ($lista as $l){
-                $f_lista[] = $this->populaModificacao($l);
+                $f_lista[] = $this->populaEvento($l);
             }
            
             return $f_lista;
@@ -211,16 +182,15 @@ class DaoModificacao{
         
     }
     
-    private function populaModificacao($row){
+    private function populaEvento($row){
         
-        $modi = new Modificacao();
-        $modi ->setId($row['id']);
-        $modi ->setTitulo($row['titulo']);
-        $modi ->setTexto($row['texto']);
-        $modi ->setVideo($row['video']);
-        $modi ->setTipo($row['tipo']);       
-        $modi ->setHtml($row['html']);
-        $modi ->setIdAdm($row['idAdm']);
+        $modi = new Evento();
+        $modi ->setId($row['idEvento']);
+        $modi ->setDataEnvio($row['dataEvento']);
+        $modi ->setDescricao($row['descricao']);
+        $modi ->setLimiteVagas($row['limiteVagas']);
+        $modi ->setQuantidadeHoras($row['quantidadeHoras']);       
+        $modi ->setStatus($row['status']);
 
         
         return $modi;

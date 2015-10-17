@@ -7,7 +7,7 @@ include_once '../entidades/Adm.php';
 include_once '../banco/Conexao.php';
 
 
-$daoModificacao = new DaoModificacao();
+$daoModificacao = new DaoEvento();
 $daoAdm = new DaoAdm();
 
 
@@ -15,10 +15,10 @@ if(isset($_GET['id'])){
     $idSelecionado = $_GET['id'];
 }
 
-$videoNovo = new Modificacao();
-$videoNovo = $daoModificacao->buscarPorId($idSelecionado);
+$eventoNovo = new Evento();
+$eventoNovo = $daoModificacao->buscarPorId($idSelecionado);
 
-$autor = $daoAdm->buscarPorId($videoNovo->getIdAdm())->getNome();
+$autor = $daoAdm->buscarPorId($eventoNovo->getIdAdm())->getNome();
 
 ?>
 
@@ -34,8 +34,8 @@ $autor = $daoAdm->buscarPorId($videoNovo->getIdAdm())->getNome();
                         <h3 class="panel-title">Dados</h3>
                     </div>
                     <div class="panel-body">
-                     <label>Titulo: <?php echo $videoNovo->getTitulo() ?></label><br />
-                     <label>Tipo: <?php echo $videoNovo->getTipo() ?></label><br />
+                     <label>Titulo: <?php echo $eventoNovo->getDataEnvio() ?></label><br />
+                     <label>Tipo: <?php echo $eventoNovo->getQuantidadeHoras() ?></label><br />
                      <label>Administrador: <?php echo $autor ?> </label><br />
                      
                      <hr />
@@ -69,7 +69,7 @@ $autor = $daoAdm->buscarPorId($videoNovo->getIdAdm())->getNome();
       </div>
       <div class="modal-body">
           <div class="jumbotron" style=" background: white;">
-              <label>Tem certeza que deseja excluir <?php echo $videoNovo->getTitulo() ?>?</label>
+              <label>Tem certeza que deseja excluir <?php echo $eventoNovo->getDataEnvio() ?>?</label>
               <br />
               <br />
               <center>
@@ -116,28 +116,28 @@ $autor = $daoAdm->buscarPorId($videoNovo->getIdAdm())->getNome();
                 <input type="hidden" id="atualizar" name="atualizar" value="sim" />
                     <div class="form-group">
                         <label  for="titulo">Titulo:</label>
-                        <input type="text" value="<?php echo $videoNovo->getTitulo() ?>" class="form-control" id="titulo" name="titulo" />
+                        <input type="text" value="<?php echo $eventoNovo->getDataEnvio() ?>" class="form-control" id="titulo" name="titulo" />
                     </div>
                     <div class="form-group">
                         <label  for="texto">Texto:</label>
-                        <input type="text" value="<?php echo $videoNovo->getTexto() ?>" class="form-control" id="texto" name="texto" />
+                        <input type="text" value="<?php echo $eventoNovo->getDescricao() ?>" class="form-control" id="texto" name="texto" />
                     </div>
                     <div class="form-group">
                         <label  for="url">Url Video:</label>
-                        <input type="url" value="<?php echo $videoNovo->getVideo() ?>" class="form-control" id="url" name="url" />
+                        <input type="url" value="<?php echo $eventoNovo->getLimiteVagas() ?>" class="form-control" id="url" name="url" />
                     </div>
                     <div class="form-group">
                         <label  for="tipo">Tipo:</label>
                         <div class="radio">
                             <label><input  type="radio" name="tipo" <?php 
-                            if($videoNovo->getTipo()==="topvisitados"){
+                            if($eventoNovo->getQuantidadeHoras()==="topvisitados"){
                                 echo "checked='true'";
                             }
                               ?> value="topvisitados">Top visitados</label>
                         </div>
                         <div class="radio">
                             <label><input type="radio" name="tipo" <?php 
-                            if($videoNovo->getTipo()==="lancamentos"){
+                            if($eventoNovo->getQuantidadeHoras()==="lancamentos"){
                                 echo "checked='true'";
                             }
                               ?> value="lancamentos">Lancamentos</label>
@@ -197,7 +197,7 @@ if(isset($_GET['deletar'])){
        try{
       
        
-       $daoModificacao->deletar($videoNovo->getId());
+       $daoModificacao->deletar($eventoNovo->getId());
        
        echo "<script type='text/javascript'>";
     
@@ -231,30 +231,30 @@ if(isset($_GET['atualizar'])){
       
        try{
            
-           $novoVideo = new Modificacao();
+           $novoVideo = new Evento();
            
            if(isset($_GET['id'])){
                $novoVideo->setId($_GET['id']);
            }
            
            if(isset($_GET['titulo'])){
-               $novoVideo->setTitulo($_GET['titulo']);
+               $novoVideo->setDataEnvio($_GET['titulo']);
            }
            
            if(isset($_GET["texto"])){
-               $novoVideo->setTexto($_GET["texto"]);
+               $novoVideo->setDescricao($_GET["texto"]);
            }
            
            if(isset($_GET["url"])){
-               $novoVideo->setVideo($_GET["url"]);
+               $novoVideo->setLimiteVagas($_GET["url"]);
            }
            
            if(isset($_GET["tipo"])){
-               $novoVideo->setTipo($_GET["tipo"]);
+               $novoVideo->setQuantidadeHoras($_GET["tipo"]);
            }
            
-           $novoVideo->setIdAdm($videoNovo->getIdAdm());
-           $novoVideo->setHtml($videoNovo->getHtml());
+           $novoVideo->setIdAdm($eventoNovo->getIdAdm());
+           $novoVideo->setStatus($eventoNovo->getStatus());
       
        
        $daoModificacao->atualizar($novoVideo);

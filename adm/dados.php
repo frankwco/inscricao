@@ -8,7 +8,7 @@ include_once '../banco/Conexao.php';
 
 
 $daoUsuario = new DaoAdm();
-$daoModi = new DaoModificacao();
+$daoModi = new DaoEvento();
 
 
 
@@ -16,7 +16,7 @@ if(isset($_GET['id'])){
     $idSelecionado = $_GET['id'];
 }
 
-$videoNovo = $daoUsuario->buscarPorId($idSelecionado);
+$eventoNovo = $daoUsuario->buscarPorId($idSelecionado);
 
 //buscar todos os videos de acordo com o administrador
 $videosDoUsuario = $daoModi->buscarPorAdm($idSelecionado);
@@ -35,9 +35,9 @@ $videosDoUsuario = $daoModi->buscarPorAdm($idSelecionado);
                         <h3 class="panel-title">Dados</h3>
                     </div>
                     <div class="panel-body">
-                     <label>Nome: <?php echo $videoNovo->getNome() ?> </label><br />
-                     <label>Email: <?php echo $videoNovo->getEmail() ?> </label><br />
-                     <label>Telefone: <?php echo $videoNovo->getTelefone() ?> </label><br />
+                     <label>Nome: <?php echo $eventoNovo->getNome() ?> </label><br />
+                     <label>Email: <?php echo $eventoNovo->getEmail() ?> </label><br />
+                     <label>Telefone: <?php echo $eventoNovo->getTelefone() ?> </label><br />
                 
                 <center>
                  <div class="btn-group">
@@ -65,7 +65,7 @@ $videosDoUsuario = $daoModi->buscarPorAdm($idSelecionado);
       </div>
       <div class="modal-body">
           <div class="jumbotron" style=" background: white;">
-              <label>Tem certeza que deseja excluir <?php echo $videoNovo->getNome() ?>?</label>
+              <label>Tem certeza que deseja excluir <?php echo $eventoNovo->getNome() ?>?</label>
               <br />
               <br />
               <center>
@@ -122,9 +122,9 @@ $videosDoUsuario = $daoModi->buscarPorAdm($idSelecionado);
                         
                         foreach ($videosDoUsuario as $video){
                           
-                            echo '<b>Tituto:</b> '.$video->getTitulo();
+                            echo '<b>Tituto:</b> '.$video->getDataEnvio();
                             echo '<br />';
-                            echo '<b>Texto:</b> '.$video->getTexto();
+                            echo '<b>Texto:</b> '.$video->getDescricao();
                             echo '<br />';
                             echo '<hr />';
                             
@@ -137,7 +137,7 @@ $videosDoUsuario = $daoModi->buscarPorAdm($idSelecionado);
           }
           else{
               
-              echo "<p>O usuário ".$videoNovo->getNome()." ainda não possui histórico!</p>";
+              echo "<p>O usuário ".$eventoNovo->getNome()." ainda não possui histórico!</p>";
           }
           
           ?>
@@ -182,7 +182,7 @@ if(isset($_GET['deletar'])){
        try{
       
        
-       $daoUsuario->deletar($videoNovo->getId());
+       $daoUsuario->deletar($eventoNovo->getId());
        
        echo "<script type='text/javascript'>";
     

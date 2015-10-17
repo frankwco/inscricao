@@ -79,14 +79,14 @@ class DaoInscricao {
         }
     }
 
-    public function atualizar(Modificacao $modi) {
+    public function atualizar(Evento $modi) {
         try {
             $sql = "UPDATE modificacao SET titulo = :titulo, texto = :texto, video = :video, tipo = :tipo WHERE id = :id";
             $p_sql = $this->pdo->prepare($sql);
-            $p_sql->bindValue(":titulo", $modi->getTitulo());
-            $p_sql->bindValue(":texto", $modi->getTexto());
-            $p_sql->bindValue(":video", $modi->getVideo());
-            $p_sql->bindValue(":tipo", $modi->getTipo());
+            $p_sql->bindValue(":titulo", $modi->getDataEnvio());
+            $p_sql->bindValue(":texto", $modi->getDescricao());
+            $p_sql->bindValue(":video", $modi->getLimiteVagas());
+            $p_sql->bindValue(":tipo", $modi->getQuantidadeHoras());
             $p_sql->bindValue(":id", $modi->getId());
             return $p_sql->execute();
         } catch (Exception $e) {

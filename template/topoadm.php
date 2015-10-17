@@ -47,52 +47,57 @@
 
                                 <ul class="nav navbar-nav navbar-right" >
                                     <li><a href="#"><span class="label" style="color: black;"><?php echo "Seja Bem vindo $logado"; ?></span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-share" data-toggle="modal"  data-target="#modalUsuario" style="color: teal;">Adicionar Usuário</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-share" data-toggle="modal"  data-target="#modalUsuario" style="color: teal;">Usuário</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-share" data-toggle="modal"  data-target="#modalEvento" style="color: teal;">Evento</span></a></li>
                                     <li><a href="../visao/logout.php"><span class="glyphicon glyphicon-log-out" style="color: teal;">Sair</span></a></li>            
                                 </ul>
                             </div>
 
 
                             <!-- Modal -->
-                            <div id="modalVideo" class="modal fade" role="dialog">
+                            <div id="modalEvento" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Adicionar</h4>
+                                            <h4 class="modal-title">Evento</h4>
                                         </div>
                                         <div class="modal-body">
+                                            
+                                            <div style="float: right;">
+                                                <label style="color: red;">Todos os campos são obrigatórios</label>
+                                            </div>
+                                            <br />
 
-                                            <div class="panel panel-primary">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Dados</h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <form action="../visao/adicionarVideo.php" method="POST" role="form" >
+                                            <form action="../visao/adicionarEvento.php" method="POST" role="form" >
 
                                                         <input type="hidden" value="<?php echo $_SERVER['PHP_SELF'] ?>" name="urlatual" id="urlatual" />
-                                                        <input type="hidden" value="<?php echo $idAdm ?>" name="idadm" id="idadm" />
+         
 
                                                         <div class="form-group">
-                                                            <label  for="titulo">Titulo:</label>
-                                                            <input type="text" required="true" placeholder="Insere o titulo" class="form-control" id="titulo" name="titulo" />
+                                                            <label  for="data">Data:</label>
+                                                            <input type="date" required="true" placeholder="Insere a data" class="form-control" id="data" name="data" />
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="texto">Texto:</label>
-                                                            <textarea  required="true" rows="3" class="form-control" id="texto" name="texto" ></textarea>
+                                                            <label for="descricao">Descrição:</label>
+                                                            <textarea  required="true" rows="3" class="form-control" id="descricao" name="descricao" ></textarea>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="url">Url:</label>
-                                                            <input type="text" required="true" placeholder="Insere a url do video" class="form-control" id="url" name="url" />
+                                                            <label for="vagas">Limite de Vagas:</label>
+                                                            <input type="number" required="true" placeholder="Insere o limite de vagas" class="form-control" id="vagas" name="vagas" />
                                                         </div>
                                                         <div class="form-group">
-                                                            <label  for="tipo">Tipo:</label>
+                                                            <label for="horas">Quantidade de Horas:</label>
+                                                            <input type="number" required="true" placeholder="Insere a quantidade de horas" class="form-control" id="horas" name="horas" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label  for="status">Status:</label>
                                                             <div class="radio">
-                                                                <label><input  type="radio" name="tipo" value="topvisitados">Top Visitados</label>
+                                                                <label><input  type="radio" name="status" value="ativo">Ativo</label>
                                                             </div>
                                                             <div class="radio">
-                                                                <label><input type="radio" name="tipo" value="lancamentos">Lançamentos</label>
+                                                                <label><input type="radio" name="status" value="inativo">Inativo</label>
                                                             </div>
                                                         </div>
                                                         <center>
@@ -106,8 +111,7 @@
                                                             </div>
                                                         </center>
                                                     </form>              
-                                                </div>
-                                            </div>
+                                             
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -125,34 +129,3 @@
             </div>  
 
 
-            <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
-
-<!--                <div class="col-md-12 col-sm-12 col-xs-12">      
-                    <div id="newbaCorousel" class="carousel slide" data-ride="carousel">
-                         Carousel indicators 
-                        <ol class="carousel-indicators">
-                            <li data-target="#newbaCorousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#newbaCorousel" data-slide-to="1"></li>
-                            <li data-target="#newbaCorousel" data-slide-to="2"></li>
-                        </ol>   
-                         Wrapper for carousel items 
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="../resources/img/agiletourn.png" alt="Newba Tutoriais e Dicas" class="img-rounded img-responsive" />
-
-                            </div>
-                            <div class="item">
-                                <img src="../resources/img/agiletourn.png" alt="Newba Tutoriais e Dicas" class="img-rounded img-responsive" />
-
-                            </div>         
-                        </div>
-                         Carousel controls 
-                        <a class="carousel-control left" href="#newbaCorousel" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="carousel-control right" href="#newbaCorousel" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
-                    </div>
-                </div>-->
-            </div>

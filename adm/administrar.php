@@ -8,7 +8,7 @@ include_once '../entidades/Modificacao.php';
 include_once '../banco/Conexao.php';
 
 $daoUsuario = new DaoAdm();
-$daoModificacao = new DaoModificacao();
+$daoModificacao = new DaoEvento();
 
 $listaUsuarios = $daoUsuario->buscarTodos();
 
@@ -130,10 +130,10 @@ $listaVideos = $daoModificacao->buscarTodos();
 foreach ($listaVideos as $video) {
     echo '<tr>';
     echo '<td>';
-    echo $video->getTitulo();
+    echo $video->getDataEnvio();
     echo '</td>';
     echo '<td>';
-    echo $video->getTipo();
+    echo $video->getQuantidadeHoras();
     echo '</td>';
     echo '<td>';
     echo "<div class='btn-group'>";

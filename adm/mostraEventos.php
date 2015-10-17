@@ -1,11 +1,11 @@
 <?php
 require '../template/topoadm.php';
 
-include_once '../dao/DaoInscricao.php';
-include_once '../entidades/Inscricao.php';
+include_once '../dao/DaoEvento.php';
+include_once '../entidades/Evento.php';
 include_once '../banco/Conexao.php';
 
-$daoEventos = new DaoInscricao();
+$daoEventos = new DaoEvento();
 $listaEventos = $daoEventos->buscarTodos();
 ?>
 
@@ -16,18 +16,18 @@ $listaEventos = $daoEventos->buscarTodos();
     <div class="col-md-8 col-sm-8 col-xs-8" >
             
         <h2 style="color: graytext;">
-            Inscrições Realizadas:
+            Eventos Realizados:
         </h2>
         <hr/>
 
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Curso</th>
-                                <th>% Presença - Nº Horas</th>
-                                <th>Evento</th>
+                                <th>Descrição</th>
+                                <th>Data</th>
+                                <th>Limite de Vagas</th>
+                                <th>Q° de Horas</th>
+                                <th>Status</th>
                                 <th>Ação</th>
                             </tr>
                         </thead>
@@ -36,20 +36,20 @@ $listaEventos = $daoEventos->buscarTodos();
                             foreach ($listaEventos as $evento) {
                                 echo '<tr>';
                                 echo '<td>';
-                                echo $evento->getNome();
+                                echo $evento->getDescricao();
                                 echo '</td>';
                                 echo '<td>';
-                                echo $evento->getEmail();
+                                echo $evento->getDataEnvio();
                                 echo '</td>';
                                 echo '<td>';
-                                echo $evento->getCurso();
+                                echo $evento->getLimiteVagas();
                                 echo '</td>';
                                 echo '<td>';
-                                echo $evento->getPorcentagemPresenca().'% - '.$evento->getQuantidadeHorasPresente().'h';
+                                echo $evento->getQuantidadeHoras().'h';
                                 echo '</td>';
                                
                                 echo '<td>';
-                                echo "Colocar o Evento";
+                                echo $evento->getStatus();
                                 echo '</td>';
 
                                 echo '<td>';
