@@ -26,6 +26,9 @@ class DaoInscricao {
     public function inserir(Inscricao $modi) {
         try {
 
+            
+            
+            
 
 
             $sql = "INSERT INTO tabinscricao ("
@@ -38,6 +41,9 @@ class DaoInscricao {
                     . "telefone2,"
                     . "idEvento,"
                     . "curso,"
+                    . "cursoPos,"
+                    . "horarioPos,"
+                    . "outrosPos,"
                     . "serie,"
                     . "ra,"
                     . "estudante"
@@ -52,6 +58,9 @@ class DaoInscricao {
                     . ":idEvento,"
                     . ":curso,"
                     . ":serie,"
+                    . ":cursoPos,"
+                    . ":horarioPos,"
+                    . ":outrosPos,"
                     . ":ra,"
                     . ":estudante)";
 
@@ -67,13 +76,16 @@ class DaoInscricao {
             $p_sql->bindValue(":idEvento", $modi->getIdEvento());
             $p_sql->bindValue(":estudante", $modi->getEstudante());
             $p_sql->bindValue(":curso", $modi->getCurso());
+            $p_sql->bindValue(":cursoPos", $modi->getCursoPos());
+            $p_sql->bindValue(":horarioPos", $modi->getHorarioPos());
+            $p_sql->bindValue(":outrosPos", $modi->getOutrosPos());
             $p_sql->bindValue(":serie", $modi->getSerie());
             $p_sql->bindValue(":ra", $modi->getRa());
 
 
 
             return $p_sql->execute();
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
 
             print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde. " . $e;
         }
@@ -164,6 +176,31 @@ class DaoInscricao {
             print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
         }
     }
+    
+    public function buscarPorCpfEmail($cpf, $email) {
+
+        try {
+
+//            $sql = "SELECT * FROM tabinscricao WHERE cpf like '%:cpf%' or email like '%:email%'";
+            $sql = "SELECT * FROM tabinscricao WHERE cpf = :cpf";
+            $p_sql = $this->pdo->prepare($sql);
+            $p_sql->bindValue(":cpf", $cpf);
+//            $p_sql->bindValue(":email", $email);
+            $p_sql->execute();
+            $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);
+            $f_lista = array();
+
+            foreach ($lista as $l) {
+                $f_lista[] = $this->populaModificacao($l);
+            }
+
+
+            return $f_lista;
+        } catch (Exception $e) {
+
+            print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
+        }
+    }
 
     public function buscarTodos() {
 
@@ -200,6 +237,9 @@ class DaoInscricao {
         $modi->setCurso($row['curso']);
         $modi->setSerie($row['serie']);
         $modi->setRa($row['ra']);
+        $modi->setCursoPos($row['cursoPos']);
+        $modi->setHorarioPos($row['horarioPos']);
+        $modi->setOutrosPos($row['outrosPos']);
         $modi->setEstudante($row['estudante']);
 
         return $modi;

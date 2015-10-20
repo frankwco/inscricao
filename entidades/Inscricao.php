@@ -23,7 +23,37 @@ class Inscricao {
     private $porcentagemPresenca;
     private $quantidadeHorasPresente;
     private $status;
+    private $cursoPos;
+    private $horarioPos;
+    private $outrosPos;
     
+    function getOutrosPos() {
+        return $this->outrosPos;
+    }
+
+    function setOutrosPos($outrosPos) {
+        $this->outrosPos = $outrosPos;
+    }
+
+        
+    function getCursoPos() {
+//        return "teste";
+        return $this->cursoPos;
+    }
+
+    function getHorarioPos() {
+//         return "teste";
+        return $this->horarioPos;
+    }
+
+    function setCursoPos($cursoPos) {
+        $this->cursoPos = $cursoPos;
+    }
+
+    function setHorarioPos($horarioPos) {
+        $this->horarioPos = $horarioPos;
+    }
+        
     function getPorcentagemPresenca() {
         return $this->porcentagemPresenca;
     }

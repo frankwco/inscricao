@@ -1,7 +1,7 @@
 <?php
 
-include_once '../dao/DaoInscricao.php';
-include_once '../entidades/Inscricao.php';
+require_once '../dao/DaoInscricao.php';
+ require_once '../entidades/Inscricao.php';
 include_once '../banco/Conexao.php';
 
 
@@ -27,7 +27,7 @@ try {
     }
 
     if (isset($_POST["idEvento"])) {
-        
+
         $inscricao->setIdEvento($_POST["idEvento"]);
     }
 
@@ -62,37 +62,59 @@ try {
     if (isset($_POST["instituicaoOrganizacao"])) {
         $inscricao->setInstituicaoOrganizacao($_POST["instituicaoOrganizacao"]);
     }
-    
-    
+
+
     if (isset($_POST["curso"])) {
         $inscricao->setCurso($_POST["curso"]);
     }
-    
+
     if (isset($_POST["ra"])) {
         $inscricao->setRa($_POST["ra"]);
     }
-  
+
     if (isset($_POST["serie"])) {
         $inscricao->setSerie($_POST["serie"]);
     }
 
+    if (isset($_POST["cursoPos"])) {
+        $inscricao->setCursoPos($_POST["cursoPos"]);
+    }
 
-
-
-
-    $daoInscricao->inserir($inscricao);
-
-
-    echo "<script type='text/javascript'>";
-
-    echo "alert('Inscrição Efetuada com Sucesso!".$inscricao->getId().$inscricao->getNome()."');";
+    if (isset($_POST["horarioPos"])) {
+        $inscricao->setHorarioPos($_POST["horarioPos"]);
+    }
     
-    
-    echo "location.href='" . $url . "';";
+    if (isset($_POST["outraAreaInteresse"])) {
+        $inscricao->setOutrosPos($_POST["outraAreaInteresse"]);
+    }
 
-    echo "</script>";
+
+
+    $listaCadastrados = $daoInscricao->buscarPorCpfEmail($inscricao->getCpf(), $inscricao->getEmail());
+
+    if (count($listaCadastrados) > 0) {
+        echo "<script type='text/javascript'>";
+
+        echo "alert('" . $inscricao->getId() ."-". $inscricao->getNome() . ", Este Email ou CPF já está Registrado no nosso Sistema!!');";
+
+
+      //  echo "location.href='" . $url . "';";
+
+        echo "</script>";
+    } else {
+        $daoInscricao->inserir($inscricao);
+        
+        echo "<script type='text/javascript'>";
+
+        echo "alert('" .count($listaCadastrados). $inscricao->getId() ."-". $inscricao->getNome() . ", Inscrição Realizada com Sucesso!!');";
+
+
+        echo "location.href='" . $url . "';";
+
+        echo "</script>";
+    }
     
-} catch (Exception $erro) {
+} catch (PDOException $erro) {
 
     // print($erro);
 

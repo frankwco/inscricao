@@ -41,6 +41,11 @@ class Conexao {
                                 "root",
                                 "",
                                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+//                                
+//                $this->pdo = new PDO("mysql:host=localhost;dbname=tecnoif_baseinscricaoevento",
+//                                "tecnoif_root",
+//                                "officetads2015",
+//                                array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
                 
 //                $this->pdo = new PDO("mysql:host=localhost;dbname=baseinscricaoevento",
 //                                "root",
