@@ -4,9 +4,6 @@ require_once '../dao/DaoInscricao.php';
  require_once '../entidades/Inscricao.php';
 include_once '../banco/Conexao.php';
 
-
-
-
 try {
 
 

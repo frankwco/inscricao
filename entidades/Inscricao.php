@@ -27,6 +27,8 @@ class Inscricao {
     private $horarioPos;
     private $outrosPos;
     
+    
+    
     function getOutrosPos() {
         return $this->outrosPos;
     }

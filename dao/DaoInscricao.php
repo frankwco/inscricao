@@ -8,7 +8,8 @@ class DaoInscricao {
 
         $this->pdo = new Conexao();
         $this->pdo = $this->pdo->getPdo();
-    }
+    } 
+    
 
     public function getNextID() {
         try {
@@ -137,6 +138,8 @@ class DaoInscricao {
             print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
         }
     }
+    
+    
 
     public function buscarPorTitulo($titulo) {
 
