@@ -180,31 +180,7 @@ class DaoInscricao {
         }
     }
     
-    public function buscarPorCpfEmail($cpf, $email) {
-
-        try {
-
-//            $sql = "SELECT * FROM tabinscricao WHERE cpf like '%:cpf%' or email like '%:email%'";
-            $sql = "SELECT * FROM tabinscricao WHERE cpf = :cpf";
-            $p_sql = $this->pdo->prepare($sql);
-            $p_sql->bindValue(":cpf", $cpf);
-//            $p_sql->bindValue(":email", $email);
-            $p_sql->execute();
-            $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);
-            $f_lista = array();
-
-            foreach ($lista as $l) {
-                $f_lista[] = $this->populaModificacao($l);
-            }
-
-
-            return $f_lista;
-        } catch (Exception $e) {
-
-            print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
-        }
-    }
-
+    
     public function buscarTodos() {
 
         try {

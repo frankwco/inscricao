@@ -86,19 +86,6 @@ try {
     }
 
 
-
-    $listaCadastrados = $daoInscricao->buscarPorCpfEmail($inscricao->getCpf(), $inscricao->getEmail());
-
-    if (count($listaCadastrados) > 0) {
-        echo "<script type='text/javascript'>";
-
-        echo "alert('" . $inscricao->getId() ."-". $inscricao->getNome() . ", Este Email ou CPF já está Registrado no nosso Sistema!!');";
-
-
-      //  echo "location.href='" . $url . "';";
-
-        echo "</script>";
-    } else {
         $daoInscricao->inserir($inscricao);
         
         echo "<script type='text/javascript'>";
@@ -109,7 +96,7 @@ try {
         echo "location.href='" . $url . "';";
 
         echo "</script>";
-    }
+    
     
 } catch (PDOException $erro) {
 
