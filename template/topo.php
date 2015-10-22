@@ -35,6 +35,8 @@
           var g = Math.ceil(Math.random() * 6)+ '';
           var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f ;
           document.getElementById("txtCaptcha").value = code
+          document.getElementById("txtCaptcha2").value = code
+          document.getElementById("txtCaptcha3").value = code
           }
         </script>
          <script type="text/javascript">
@@ -63,7 +65,6 @@
                                 <a class="navbar-brand" style="color: teal;" href="index.php"><img  src="./resources/img/at.png" alt="Agile Tour" class="img-responsive" /></a>
                             </div>
                             <div class="collapse navbar-collapse" id="navBarUser">
-sd
                                 <ul class="nav navbar-nav navbar-right" >
 <!--                                    <li><a href="index.php"><span class="glyphicon glyphicon-home" style="color: teal;">Home</span></a></li>-->
                                     <li><a href="#"><span class="glyphicon glyphicon-share" data-toggle="modal"  data-target="#modalLogin" style="color: teal;">Entrar</span></a></li>

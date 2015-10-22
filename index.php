@@ -77,7 +77,6 @@
             <!-- COMENTARIO -->            
 
             <ul class="nav navbar-nav navbar-left" >
-<!--                                    <li><a href="index.php"><span class="glyphicon glyphicon-home" style="color: teal;">Home</span></a></li>-->
                 <li><a href="#imgQuee"><span style="color: teal; font-weight: bold;"><u>Sobre o Evento</u></span></a></li>
                 <li><a href="#imgInscricao"><span style="color: teal; font-weight: bold;"><u>Faça Sua Inscrição no Agile Tour 2015</u></span></a></li>
                 <li><a href="#imgLocalizacao"><span style="color: teal; font-weight: bold;"><u>Localização do Agile Tour 2015</u></span></a></li>

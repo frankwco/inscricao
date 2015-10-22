@@ -1,10 +1,20 @@
 <div id="painelInscricaoSetif">
+    
+    
+    <ul class="nav navbar-nav navbar-left" >
+                <li><a href="#imgQuee2"><span style="color: teal; font-weight: bold;"><u>Sobre o Evento</u></span></a></li>
+                <li><a href="#imgInscricao2"><span style="color: teal; font-weight: bold;"><u>Faça Sua Inscrição no Setif 2015</u></span></a></li>
+                <li><a href="#imgLocalizacao2"><span style="color: teal; font-weight: bold;"><u>Localização do Setif 2015</u></span></a></li>
+    </ul>
+    <br />
+    
+    
     <!-- COMENTARIO -->
     <div class="jumbotron" style="background: white; " >
 
-
-                <img src="./resources/img/oquee2.png" style="max-height: 150px;" class="img-responsive" />    
-                <br />
+        <img id="imgQuee2" src="./resources/img/oquee2.png" style="max-height: 150px;" class="img-responsive"  />   
+     
+        <br />
 
 
                         <div class="jumbotron" style="background: white; border: 2px #0085C5 solid; " >
@@ -61,7 +71,7 @@
         
 
 
-        <img src="./resources/img/bannerinscricao.png" style="max-height: 150px;" class="img-responsive" />    
+                <img id="imgInscricao2" src="./resources/img/bannerinscricao.png" style="max-height: 150px;" class="img-responsive" />    
         <br />
 
         <div class="jumbotron" style="background: white; border: 2px #0085C5 solid;" >
@@ -125,12 +135,16 @@
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select>
+                    </div>                   
+                    <div class="form-group" style="font-size: 15px;">
+                        <label  for=txtCaptcha2">Não sou um robo:</label>
+                        <input type="text" id="txtCaptcha2" class="form-control" style=" text-align:center; border:none; font-weight: bold; font-family:Modern" />
+                        <input type="button" id="btnrefresh" class="form-control" value="Atualizar" class="btn btn-default " onclick="DrawCaptcha();" />
+                        <input type="text" style="width: 100%;" placeholder="Insira o numero acima"  oninput="check(this)" required  id="txtInput"/> 
                     </div>
-
-
                     <center>
                         <div class="btn-group">
-                            <button type="submit" class="btn btn-success btn-lg">
+                            <button type="submit" class="btn btn-success btn-lg" onclick="ValidCaptcha();">
                                 <span class="glyphicon glyphicon-ok"></span>
                                 Efetuar a Inscrição</button> 
                             <button type="reset" class="btn btn-danger btn-lg">
@@ -144,7 +158,7 @@
  
         <br />
         
-        <img src="resources/img/bannerlocalizacao.png" style="max-height: 150px;" class="img-responsive" />    
+        <img id="imgLocalizacao2" src="resources/img/bannerlocalizacao.png" style="max-height: 150px;" class="img-responsive" />    
         <br />
                 
                 <div class="jumbotron" style="background: white; border: 2px #0085C5 solid;"  >

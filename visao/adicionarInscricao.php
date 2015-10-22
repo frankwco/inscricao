@@ -10,8 +10,6 @@ try {
     $url = "";
 
     $daoInscricao = new DaoInscricao();
-
-
     $inscricao = new Inscricao();
 
 
@@ -84,7 +82,34 @@ try {
     if (isset($_POST["outraAreaInteresse"])) {
         $inscricao->setOutrosPos($_POST["outraAreaInteresse"]);
     }
+    
+    //VERIFICAR CPF E EMAIL 
+    $listaEmail = $daoInscricao->buscarPorEmail($_POST["email"]);
+    $listaCpf = $daoInscricao->buscarPorCpf($_POST["cpf"]);
+    
 
+    
+    if(count($listaEmail) > 0){
+        
+    echo "<script type='text/javascript'>";
+
+    echo "alert('Já existe um usuário com esse email!');";
+    echo "location.href='" . $url . "';";
+
+    echo "</script>";
+        
+    }
+    else if(count($listaCpf) > 0){
+        
+    echo "<script type='text/javascript'>";
+
+    echo "alert('Já existe um usuário com esse cpf!');";
+    echo "location.href='" . $url . "';";
+
+    echo "</script>";
+        
+    }
+    else{
 
         $daoInscricao->inserir($inscricao);
         
@@ -96,9 +121,13 @@ try {
         echo "location.href='" . $url . "';";
 
         echo "</script>";
+    }
+        
     
     
-} catch (PDOException $erro) {
+} 
+catch (PDOException $erro) 
+{
 
     // print($erro);
 

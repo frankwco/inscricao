@@ -27,10 +27,6 @@ class DaoInscricao {
     public function inserir(Inscricao $modi) {
         try {
 
-            
-            
-            
-
 
             $sql = "INSERT INTO tabinscricao ("
                     . "cidade,"
@@ -112,7 +108,7 @@ class DaoInscricao {
 
         try {
 
-            $sql = "DELETE FROM modificacao WHERE id = :id";
+            $sql = "DELETE FROM tabinscricao WHERE idInscricao = :id";
             $p_sql = $this->pdo->prepare($sql);
             $p_sql->bindValue(":id", $id);
 
@@ -127,7 +123,7 @@ class DaoInscricao {
 
         try {
 
-            $sql = "SELECT * FROM modificacao WHERE id = :id";
+            $sql = "SELECT * FROM tabinscricao WHERE idInscricao = :id";
             $p_sql = $this->pdo->prepare($sql);
             $p_sql->bindValue(":id", $id);
             $p_sql->execute();
@@ -141,44 +137,61 @@ class DaoInscricao {
     
     
 
-    public function buscarPorTitulo($titulo) {
+    public function buscarPorEmail($email) {
 
         try {
 
-            $sql = "SELECT * FROM modificacao WHERE titulo = :titulo";
+            $sql = "SELECT * FROM tabinscricao WHERE email = :email";
             $p_sql = $this->pdo->prepare($sql);
-            $p_sql->bindValue(":titulo", $titulo);
+            $p_sql->bindValue(":email", $email);
             $p_sql->execute();
 
             return $this->populaModificacao($p_sql->fetch(PDO::FETCH_ASSOC));
+            
         } catch (Exception $e) {
 
             print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
         }
     }
-
-    public function buscarPorAdm($idAdm) {
+    public function buscarPorCpf($cpf) {
 
         try {
 
-            $sql = "SELECT * FROM modificacao WHERE idAdm = :idAdm";
+            $sql = "SELECT * FROM tabinscricao WHERE cpf = :cpf";
             $p_sql = $this->pdo->prepare($sql);
-            $p_sql->bindValue(":idAdm", $idAdm);
+            $p_sql->bindValue(":cpf", $cpf);
             $p_sql->execute();
-            $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);
-            $f_lista = array();
 
-            foreach ($lista as $l) {
-                $f_lista[] = $this->populaModificacao($l);
-            }
-
-
-            return $f_lista;
+            return $this->populaModificacao($p_sql->fetch(PDO::FETCH_ASSOC));
+            
         } catch (Exception $e) {
 
             print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
         }
     }
+
+//    public function buscarPorCpf($cpf) {
+//
+//        try {
+//
+//            $sql = "SELECT * FROM tabinscricao WHERE cpf = :cpf";
+//            $p_sql = $this->pdo->prepare($sql);
+//            $p_sql->bindValue(":cpf", $cpf);
+//            $p_sql->execute();
+//            $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);
+//            $f_lista = array();
+//
+//            foreach ($lista as $l) {
+//                $f_lista[] = $this->populaModificacao($l);
+//            }
+//
+//
+//            return $f_lista;
+//        } catch (Exception $e) {
+//
+//            print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
+//        }
+//    }
     
     
     public function buscarTodos() {
