@@ -93,7 +93,7 @@ try {
         
     echo "<script type='text/javascript'>";
 
-    echo "alert('Já existe um usuário com esse email!');";
+    echo "alert('Já existe um usuário com esse email!  ".count($listaEmail)."');";
     echo "location.href='" . $url . "';";
 
     echo "</script>";
@@ -115,7 +115,7 @@ try {
         
         echo "<script type='text/javascript'>";
 
-        echo "alert('" .count($listaCadastrados). $inscricao->getId() ."-". $inscricao->getNome() . ", Inscrição Realizada com Sucesso!!');";
+        echo "alert('". $inscricao->getNome() . ", Inscrição Realizada com Sucesso!!');";
 
 
         echo "location.href='" . $url . "';";

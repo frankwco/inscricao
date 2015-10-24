@@ -8,8 +8,7 @@ class DaoInscricao {
 
         $this->pdo = new Conexao();
         $this->pdo = $this->pdo->getPdo();
-    } 
-    
+    }
 
     public function getNextID() {
         try {
@@ -134,8 +133,6 @@ class DaoInscricao {
             print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
         }
     }
-    
-    
 
     public function buscarPorEmail($email) {
 
@@ -146,13 +143,24 @@ class DaoInscricao {
             $p_sql->bindValue(":email", $email);
             $p_sql->execute();
 
-            return $this->populaModificacao($p_sql->fetch(PDO::FETCH_ASSOC));
-            
+            $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);
+            $f_lista = array();
+
+            foreach ($lista as $l) {
+                $f_lista[] = $this->populaModificacao($l);
+            }
+
+            return $f_lista;
+
+
+
+//            return $this->populaModificacao($p_sql->fetch(PDO::FETCH_ASSOC));
         } catch (Exception $e) {
 
             print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
         }
     }
+
     public function buscarPorCpf($cpf) {
 
         try {
@@ -162,8 +170,14 @@ class DaoInscricao {
             $p_sql->bindValue(":cpf", $cpf);
             $p_sql->execute();
 
-            return $this->populaModificacao($p_sql->fetch(PDO::FETCH_ASSOC));
-            
+            $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);
+            $f_lista = array();
+
+            foreach ($lista as $l) {
+                $f_lista[] = $this->populaModificacao($l);
+            }
+
+            return $f_lista;
         } catch (Exception $e) {
 
             print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
@@ -192,8 +206,8 @@ class DaoInscricao {
 //            print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
 //        }
 //    }
-    
-    
+
+
     public function buscarTodos() {
 
         try {

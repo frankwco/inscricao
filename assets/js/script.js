@@ -2,7 +2,8 @@ $(function(){
 	
         
         //CONVERTER A DATA DO BANDO EM TIME
-        var dataTime = new Date(2015, 11, 07).getTime();
+        var dataTime = new Date("2015,11,07").getTime();
+//        var dataTime = new Date().getTime();
         //DETERMINA O TEMPO RESTANTE (tempoEnvio - agora)
         var tempoRestante = dataTime - new Date().getTime();
         
