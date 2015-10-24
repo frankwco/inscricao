@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group" style="font-size: 15px;">
                         <label  for=txtCaptcha3">Não sou um robo:</label>
-                        <input type="text" id="txtCaptcha3" class="form-control" style=" text-align:center; border:none; font-weight: bold; font-family:Modern" />
+                        <input type="text" disabled="true" id="txtCaptcha3" class="form-control" style=" text-align:center; border:none; font-weight: bold; font-family:Modern" />
                         <input type="button" id="btnrefresh" class="form-control" value="Atualizar" class="btn btn-default " onclick="DrawCaptcha();" />
                         <input type="text" style="width: 100%;" placeholder="Insira o numero acima"  oninput="check(this)" required  id="txtInput"/> 
                     </div>

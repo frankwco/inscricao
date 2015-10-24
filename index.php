@@ -255,7 +255,7 @@
                                 <th>X</th>
                            </tr>                                      
                         </table>  -->
-                            <hr />
+<!--                            <hr />-->
                             <center>
                                 <h1 style="color: dodgerblue; ">Patrocinadores</h1>
                             </center>
@@ -263,9 +263,15 @@
                             <h3 style="color: graytext;">Confira nossos patrocinadores.</h3>
                             <br />
                             <center>
-                                <img src="resources/img/upcode.png" style="max-height: 150px;" class="img-responsive" /> 
-                                <h3>Objetive imagem</h3>
+                                <div style="float: left;">
+                                <img src="resources/img/upcode.png" style="max-height: 64px;" class="img-responsive" /> 
+                                </div>
+                                <div style="float: left; width: 30px; height: 10px;"></div>
+                                <div style="float: left;">
+                                <img src="resources/img/objetive.png" style="max-height: 64px;" class="img-responsive" /> 
+                                </div>
                             </center>
+                            
                         </div> 
                     </div>
                 </div>
