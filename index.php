@@ -9,18 +9,21 @@
         $("#painelEmBreve").hide();
         $("#painelInscricaoSetif").hide();
         $("#painelInscricaoAgile").hide();
+        $("#painelInscricaoMiniCurso").hide();
         $("#painelVideoBemVindo").show();
 
         $("#btnPainelEmBreve").click(function () {
             $("#painelEmBreve").show();
             $("#painelInscricaoSetif").hide();
             $("#painelInscricaoAgile").hide();
+            $("#painelInscricaoMiniCurso").hide();
             $("#painelVideoBemVindo").hide();
         });
 
         $("#btnPainelLancametos").click(function () {
             $("#painelEmBreve").hide();
             $("#painelInscricaoSetif").show();
+            $("#painelInscricaoMiniCurso").hide();
             $("#painelInscricaoAgile").hide();
             $("#painelVideoBemVindo").hide();
         });
@@ -29,6 +32,7 @@
         $("#btnPainelTopVideos").click(function () {
             $("#painelEmBreve").hide();
             $("#painelInscricaoSetif").hide();
+            $("#painelInscricaoMiniCurso").hide();
             $("#painelInscricaoAgile").show();
             $("#painelVideoBemVindo").hide();
         });
@@ -37,7 +41,16 @@
             $("#painelEmBreve").hide();
             $("#painelInscricaoSetif").hide();
             $("#painelInscricaoAgile").hide();
+            $("#painelInscricaoMiniCurso").hide();
             $("#painelVideoBemVindo").show();
+        });
+        
+        $("#btnPainelMiniCurso").click(function () {
+            $("#painelEmBreve").hide();
+            $("#painelInscricaoSetif").hide();
+            $("#painelInscricaoAgile").hide();
+            $("#painelVideoBemVindo").hide();
+            $("#painelInscricaoMiniCurso").show();
         });
 
     });
@@ -52,6 +65,9 @@
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
                 <div class="btn-group" role="group">
                     <button id="btnPainelVideoBemVindo" type="button" class="btn btn-primary btn-lg">Agile Tour</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button id="btnPainelMiniCurso" type="button" class="btn btn-success btn-lg">Minicursos</button>
                 </div>
                 <div class="btn-group" role="group">
                     <button type="button" id="btnPainelLancametos" class="btn btn-info btn-lg">SETIF</button>
@@ -156,12 +172,12 @@
                             <br />
 
                             <h3 style="color: graytext; text-align: justify;">
-                                Paranavái-PR, receberá pela primeira vez a edição 2015 do Agile Tour. 
+                                Paranavaí-PR, receberá pela primeira vez a edição 2015 do Agile Tour. 
                                 O evento é organizado pelas comunidades ágeis locais, é um evento sem fins
                                 lucatrivos e tem como principal missão criar lideranças em metodologias ágeis no mundo,
                                 Também tem por objetivo promover uma comunicação em massa, compartilhando visões e casos de sucesso,
-                                icentivando a adoção dessas técinicas por grupo e empresas.
-                                Confiram em breve nossa agenda!
+                                icentivando a adoção dessas técnicas por grupos e empresas.<br/>
+                                <a href="http://agiletour.com.br/2015/paranavai/" target="_blank" >Confiram nossa agenda!!</a>
                             </h3>
 
 
@@ -347,8 +363,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label  for=instituicaoOrganizacao" style="color: red;">Pesquisa de Opinião</label>
-                            <label  for=instituicaoOrganizacao">*Ajude-nos a propor uma Pós Graduação Lato Sensu (Especialização) no IFPR Campus Paranavaí. No caso de uma possível oferta, escolha duas áreas que venham de encontro com o seu interesse:</label>
+                            <label  style="color: red;">Pesquisa de Opinião</label>
+                            <label  >*Ajude-nos a propor uma Pós Graduação Lato Sensu (Especialização) no IFPR Campus Paranavaí. No caso de uma possível oferta, escolha duas áreas que venham de encontro com o seu interesse:</label>
                             <div class="radio">
                                 <label><input required="true"  type="radio" name="cursoPos" value="Programação Web/Programação para Dispositivos Móveis">Programação Web/Programação para Dispositivos Móveis</label>
                             </div>
@@ -370,8 +386,6 @@
                             <div class="radio">
                                 <label><input type="radio" name="horarioPos" value="Sexta-feira a noite e aos sábados">Sexta-feira a noite e aos sábados</label>
                             </div>
-
-                            <input type="text" required="true" placeholder="Insira o Nome da Instituição e/ou Organização" class="form-control" id="instituicaoOrganizacao" name="instituicaoOrganizacao" />
 
 
 
@@ -445,10 +459,13 @@
 
 
         <!--Inscrição para o AGILE TOUR-->
-        <?php require './visao/inscricaoAgile.php'; ?>
+        <?php // require './visao/inscricaoAgile.php'; ?>
 
         <!--Inscricao para a SETIF-->
         <?php require './visao/inscricaoSetif.php'; ?>
+        
+        <!--Inscricao para a SETIF-->
+        <?php require './visao/inscricaoMiniCurso.php'; ?>
 
 
         <!--Emitir Declarações-->

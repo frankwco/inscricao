@@ -134,13 +134,14 @@ class DaoInscricao {
         }
     }
 
-    public function buscarPorEmail($email) {
+    public function buscarPorEmail($email, $idEvento) {
 
         try {
 
-            $sql = "SELECT * FROM tabinscricao WHERE email = :email";
+            $sql = "SELECT * FROM tabinscricao WHERE email = :email and idEvento = :idEvento";
             $p_sql = $this->pdo->prepare($sql);
             $p_sql->bindValue(":email", $email);
+            $p_sql->bindValue(":idEvento", $idEvento);
             $p_sql->execute();
 
             $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);
@@ -161,13 +162,14 @@ class DaoInscricao {
         }
     }
 
-    public function buscarPorCpf($cpf) {
+    public function buscarPorCpf($cpf, $idEvento) {
 
         try {
 
-            $sql = "SELECT * FROM tabinscricao WHERE cpf = :cpf";
+            $sql = "SELECT * FROM tabinscricao WHERE cpf = :cpf and idEvento = :idEvento";
             $p_sql = $this->pdo->prepare($sql);
             $p_sql->bindValue(":cpf", $cpf);
+            $p_sql->bindValue(":idEvento", $idEvento);
             $p_sql->execute();
 
             $lista = $p_sql->fetchAll(PDO::FETCH_ASSOC);

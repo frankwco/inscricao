@@ -3,6 +3,7 @@
 require_once '../dao/DaoInscricao.php';
  require_once '../entidades/Inscricao.php';
 include_once '../banco/Conexao.php';
+echo "<meta charset='UTF-8'/>";
 
 try {
 
@@ -84,8 +85,8 @@ try {
     }
     
     //VERIFICAR CPF E EMAIL 
-    $listaEmail = $daoInscricao->buscarPorEmail($_POST["email"]);
-    $listaCpf = $daoInscricao->buscarPorCpf($_POST["cpf"]);
+    $listaEmail = $daoInscricao->buscarPorEmail($_POST["email"], $_POST["idEvento"]);
+    $listaCpf = $daoInscricao->buscarPorCpf($_POST["cpf"], $_POST["idEvento"]);
     
 
     

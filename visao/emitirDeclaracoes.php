@@ -18,7 +18,7 @@
             </div>
             <br />
 
-                <form action="./visao/adicionarInscricao.php" method="POST" role="form" >
+                <form action="./visao/emiteDeclaracao.php" method="POST" role="form" >
                     <input type="hidden" value="<?php echo $_SERVER['PHP_SELF'] ?>" name="urlatual" id="urlatual" />
 
 
