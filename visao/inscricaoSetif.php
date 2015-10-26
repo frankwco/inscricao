@@ -3,8 +3,8 @@
     
     <ul class="nav navbar-nav navbar-left" >
                 <li><a href="#imgQuee2"><span style="color: teal; font-weight: bold;"><u>Sobre o Evento</u></span></a></li>
-                <li><a href="#imgInscricao2"><span style="color: teal; font-weight: bold;"><u>Faça Sua Inscrição no Setif 2015</u></span></a></li>
-                <li><a href="#imgLocalizacao2"><span style="color: teal; font-weight: bold;"><u>Localização do Setif 2015</u></span></a></li>
+                <li><a href="#imgInscricao2"><span style="color: teal; font-weight: bold;"><u>Faça Sua Inscrição na SETIF 2015</u></span></a></li>
+                <li><a href="#imgLocalizacao2"><span style="color: teal; font-weight: bold;"><u>Localização da SETIF 2015</u></span></a></li>
     </ul>
     <br />
     
@@ -58,11 +58,11 @@
                                     <br />
         
                                     <center>
-                                        <h4 style="color: graytext;">Acho legal colocar alguma coisa relacionado à SETIF, para diferenciar as páginas de inscrições e também divulgar o evento!! O que acham de colocar a programação????</h4>  <br />
+                                        <h4 style="color: graytext;">A demanda por profissionais nas mais diversas áreas da informática crescem expressivamente, entretanto, as melhores vagas são ocupadas por aqueles que possuem maiores e melhores níveis de capacitação. Capacitar-se é um dever constante para todo e qualquer profissional, e em especial, para profissionais desta área. Com este entendimento o eixo de Informação e Comunicação do IFPR Campus Paranavaí realiza todos os anos a Semana de Tecnologia da Informação – SETIF, a oportunidade é ímpar para que alunos, professores e convidados ampliem suas perspectivas profissionais e relações interpessoais por meio da realização de oficinas, palestras, campeonato de jogos e encontros culturais.</h4>  <br />
                                    </center>
                                     
                                     <hr />
-                                    <h1>CONTINUAÇÃO</h1>
+<!--                                    <h1>CONTINUAÇÃO</h1>-->
         
                                 </div> 
                             </div>
@@ -77,7 +77,7 @@
         <div class="jumbotron" style="background: white; border: 2px #0085C5 solid;" >
             
             <h3 style="color: graytext;">
-                Faça sua inscrição para o Setif 2015 - Paranavaí - Contamos com sua presença!
+                Faça sua inscrição para a SETIF 2015 - Paranavaí - Contamos com sua presença!
             </h3>
             <br />
             
@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label  for="cpf">*CPF (Somente numeros):</label>
+                        <label  for="cpf">*CPF (Somente números):</label>
                         <input type="text" required="true" oninput="vCPF(this)" placeholder="Insira seu CPF" class="form-control" id="cpf" name="cpf" />
                     </div>
 
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label  for="ra">*Ra:</label>
+                        <label  for="ra">*RA:</label>
                         <input type="text" required="true" placeholder="Insira seu RA" class="form-control" id="ra" name="ra" />
                     </div>
 
@@ -122,8 +122,9 @@
                     <div class="form-group">
                         <label for="curso">*Selecione um Curso:</label>
                         <select required="true" class="form-control" name="curso" id="curso">
-                            <option value="Tecnologia em Análise e Desenvolvimento de Sistemas">Tecnologia em Análise e Desenvolvimento de Sistemas</option>
-                            <option value="Técnico em Informática Integrado">Técnico em Informática Integrado</option>
+                            <option value="Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas">Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas</option>
+                            <option value="Curso Técnico em Informática Integrado ao Ensino Médio">Curso Técnico em Informática Integrado ao Ensino Médio</option>
+                            <option value="Outros">Outros</option>
                         </select>
                     </div>
 
@@ -137,10 +138,10 @@
                         </select>
                     </div>                   
                     <div class="form-group" style="font-size: 15px;">
-                        <label  for=txtCaptcha2">Não sou um robo:</label>
+                        <label  for=txtCaptcha2">Não sou um robô:</label>
                         <input type="text" disabled="true" id="txtCaptcha2" class="form-control" style=" text-align:center; border:none; font-weight: bold; font-family:Modern" />
                         <input type="button" id="btnrefresh" class="form-control" value="Atualizar" class="btn btn-default " onclick="DrawCaptcha();" />
-                        <input type="text" style="width: 100%;" placeholder="Insira o numero acima"  oninput="check(this)" required  id="txtInput"/> 
+                        <input type="text" style="width: 100%;" placeholder="Insira o número acima"  oninput="check(this)" required  id="txtInput"/> 
                     </div>
                     <center>
                         <div class="btn-group">
@@ -165,7 +166,7 @@
                 
                
                     <h3 style="color: graytext;">
-                         O evento acontecerá nas dependencias do IFPR.
+                         O evento acontecerá nas dependências do IFPR.
                     </h3>
                     <br />
                 

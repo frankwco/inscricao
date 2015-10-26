@@ -94,7 +94,7 @@
 
             <ul class="nav navbar-nav navbar-left" >
                 <li><a href="#imgQuee"><span style="color: teal; font-weight: bold;"><u>Sobre o Evento</u></span></a></li>
-                <li><a href="#imgInscricao"><span style="color: teal; font-weight: bold;"><u>Faça Sua Inscrição no Agile Tour 2015</u></span></a></li>
+                <li><a href="#imgInscricao"><span style="color: teal; font-weight: bold;"><u>Faça sua inscrição no Agile Tour 2015</u></span></a></li>
                 <li><a href="#imgLocalizacao"><span style="color: teal; font-weight: bold;"><u>Localização do Agile Tour 2015</u></span></a></li>
             </ul>
 
@@ -166,18 +166,18 @@
                             <br />
                             <hr />
 
-                            <center>
+<!--                            <center>
                                 <h1 style="color: dodgerblue">Empresa</h1>
-                            </center>
+                            </center>-->
                             <br />
 
                             <h3 style="color: graytext; text-align: justify;">
                                 Paranavaí-PR, receberá pela primeira vez a edição 2015 do Agile Tour. 
                                 O evento é organizado pelas comunidades ágeis locais, é um evento sem fins
                                 lucatrivos e tem como principal missão criar lideranças em metodologias ágeis no mundo,
-                                Também tem por objetivo promover uma comunicação em massa, compartilhando visões e casos de sucesso,
-                                icentivando a adoção dessas técnicas por grupos e empresas.<br/>
-                                <a href="http://agiletour.com.br/2015/paranavai/" target="_blank" >Confiram nossa agenda!!</a>
+                                além de promover uma comunicação em massa, compartilhando visões e casos de sucesso,
+                                incentivando a adoção dessas técnicas por grupos e empresas.<br/>
+                                <a href="http://agiletour.com.br/2015/paranavai/" target="_blank" ><u>Confiram nossa agenda!!</u></a>
                             </h3>
 
 
@@ -276,7 +276,7 @@
                                 <h1 style="color: dodgerblue; ">Patrocinadores</h1>
                             </center>
                             <br />
-                            <h3 style="color: graytext;">Confira nossos patrocinadores.</h3>
+                            <!--<h3 style="color: graytext;">Confira nossos patrocinadores.</h3>-->
                             <br />
                             <center>
                                 <div style="float: left;">
@@ -322,7 +322,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label  for="cpf">*CPF (Somente numeros):</label>
+                            <label  for="cpf">*CPF (Somente números):</label>
                             <input type="text" required="true"  oninput="vCPF(this)" placeholder="Insira seu CPF" class="form-control" id="cpf" name="cpf" />
 
                         </div>
@@ -361,7 +361,10 @@
                             <label  for=instituicaoOrganizacao">*Instituição/Organização</label>
                             <input type="text" required="true" placeholder="Insira o Nome da Instituição e/ou Organização" class="form-control" id="instituicaoOrganizacao" name="instituicaoOrganizacao" />
                         </div>
-
+                        <br/>
+                        
+                        <!--<hr style="border: 2px solid black"/>-->
+                        <div style="border: 1px solid #0085C5; border-radius: 10px; padding: 2px">
                         <div class="form-group">
                             <label  style="color: red;">Pesquisa de Opinião</label>
                             <label  >*Ajude-nos a propor uma Pós Graduação Lato Sensu (Especialização) no IFPR Campus Paranavaí. No caso de uma possível oferta, escolha duas áreas que venham de encontro com o seu interesse:</label>
@@ -390,15 +393,17 @@
 
 
                         </div>
+                        </div>
+                         <!--<hr style="border: 2px solid black"/>-->
 
-
+                         <br/>
 
 
                         <div class="form-group" style="font-size: 15px;">
-                            <label  for=txtCaptcha">Não sou um robo:</label>
+                            <label  for=txtCaptcha">Não sou um robô:</label>
                             <input type="text" disabled="true" id="txtCaptcha" class="form-control" style="background-image:url(images/cap.JPG); text-align:center; border:none; font-weight: bold; font-family:Modern" />
                             <input type="button" id="btnrefresh" class="form-control" value="Atualizar" class="btn btn-default " onclick="DrawCaptcha();" />
-                            <input type="text" style="width: 100%;" placeholder="Insira o numero acima"  oninput="check(this)" required  id="txtInput"/> 
+                            <input type="text" style="width: 100%;" placeholder="Insira o número acima"  oninput="check(this)" required  id="txtInput"/> 
                         </div>
 
 
@@ -439,7 +444,7 @@
 
 
                     <h3 style="color: graytext;">
-                        O evento acontecerá nas dependencias do IFPR.
+                        O evento acontecerá nas dependências do IFPR.
                     </h3>
                     <br />
 

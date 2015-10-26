@@ -1,9 +1,10 @@
 <?php
 
 require_once '../dao/DaoInscricao.php';
- require_once '../entidades/Inscricao.php';
+require_once '../entidades/Inscricao.php';
 include_once '../banco/Conexao.php';
 echo "<meta charset='UTF-8'/>";
+require "phpmailer/PHPMailerAutoload.php";
 
 try {
 
@@ -12,6 +13,7 @@ try {
 
     $daoInscricao = new DaoInscricao();
     $inscricao = new Inscricao();
+    $tipoEvento="";
 
 
 
@@ -25,6 +27,13 @@ try {
     if (isset($_POST["idEvento"])) {
 
         $inscricao->setIdEvento($_POST["idEvento"]);
+        
+//        if($inscricao->getIdEvento()==1){
+//            $tipoEvento="Inscrição Agile Tour";
+//        }
+//        if($inscricao->getIdEvento()==2){
+//            $tipoEvento="Inscrição SETIF";
+//        }
     }
 
     if (isset($_POST["nome"])) {
@@ -79,56 +88,55 @@ try {
     if (isset($_POST["horarioPos"])) {
         $inscricao->setHorarioPos($_POST["horarioPos"]);
     }
-    
+
     if (isset($_POST["outraAreaInteresse"])) {
         $inscricao->setOutrosPos($_POST["outraAreaInteresse"]);
     }
-    
+
     //VERIFICAR CPF E EMAIL 
     $listaEmail = $daoInscricao->buscarPorEmail($_POST["email"], $_POST["idEvento"]);
     $listaCpf = $daoInscricao->buscarPorCpf($_POST["cpf"], $_POST["idEvento"]);
-    
 
-    
-    if(count($listaEmail) > 0){
-        
-    echo "<script type='text/javascript'>";
+    if (validaCPF($_POST["cpf"])) {
 
-    echo "alert('Já existe um usuário com esse email!  ".count($listaEmail)."');";
-    echo "location.href='" . $url . "';";
+        if (count($listaEmail) > 0) {
 
-    echo "</script>";
-        
-    }
-    else if(count($listaCpf) > 0){
-        
-    echo "<script type='text/javascript'>";
+            echo "<script type='text/javascript'>";
 
-    echo "alert('Já existe um usuário com esse cpf!');";
-    echo "location.href='" . $url . "';";
+            echo "alert('Já existe um usuário com esse email!  " . count($listaEmail) . "');";
+            echo "location.href='" . $url . "';";
 
-    echo "</script>";
-        
-    }
-    else{
+            echo "</script>";
+        } else if (count($listaCpf) > 0) {
 
-        $daoInscricao->inserir($inscricao);
-        
+            echo "<script type='text/javascript'>";
+
+            echo "alert('Já existe um usuário com esse cpf!');";
+            echo "location.href='" . $url . "';";
+
+            echo "</script>";
+        } else {
+
+            $daoInscricao->inserir($inscricao);
+
+            echo "<script type='text/javascript'>";
+
+            echo "alert('" . $inscricao->getNome() . ", Inscrição Realizada com Sucesso!!');";
+
+
+            echo "location.href='" . $url . "';";
+
+            echo "</script>";
+        }
+    } else {
         echo "<script type='text/javascript'>";
 
-        echo "alert('". $inscricao->getNome() . ", Inscrição Realizada com Sucesso!!');";
-
-
+        echo "alert('CPF Inválido, faça sua inscrição novamente!');";
         echo "location.href='" . $url . "';";
 
         echo "</script>";
     }
-        
-    
-    
-} 
-catch (PDOException $erro) 
-{
+} catch (PDOException $erro) {
 
     // print($erro);
 
@@ -140,8 +148,51 @@ catch (PDOException $erro)
     echo "</script>";
 }
 
-       
 
 
+function validaCPF($cpf = null) {
 
+    // Verifica se um número foi informado
+    if (empty($cpf)) {
+        return false;
+    }
 
+    // Elimina possivel mascara
+    $cpf = ereg_replace('[^0-9]', '', $cpf);
+    $cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
+
+    // Verifica se o numero de digitos informados é igual a 11 
+    if (strlen($cpf) != 11) {
+        return false;
+    }
+    // Verifica se nenhuma das sequências invalidas abaixo 
+    // foi digitada. Caso afirmativo, retorna falso
+    else if ($cpf == '00000000000' ||
+            $cpf == '11111111111' ||
+            $cpf == '22222222222' ||
+            $cpf == '33333333333' ||
+            $cpf == '44444444444' ||
+            $cpf == '55555555555' ||
+            $cpf == '66666666666' ||
+            $cpf == '77777777777' ||
+            $cpf == '88888888888' ||
+            $cpf == '99999999999') {
+        return false;
+        // Calcula os digitos verificadores para verificar se o
+        // CPF é válido
+    } else {
+
+        for ($t = 9; $t < 11; $t++) {
+
+            for ($d = 0, $c = 0; $c < $t; $c++) {
+                $d += $cpf{$c} * (($t + 1) - $c);
+            }
+            $d = ((10 * $d) % 11) % 10;
+            if ($cpf{$c} != $d) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}

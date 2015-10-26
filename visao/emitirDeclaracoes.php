@@ -9,7 +9,7 @@
         <div class="jumbotron" style="background: white; border: 2px #0085C5 solid;" >
             
             <h3 style="color: graytext;">
-                Emitir sua declarações de participação no(s) evento(s).
+                Emita sua declaração de participação no evento.
             </h3>
             <br />
             
@@ -23,7 +23,7 @@
 
 
                     <div class="form-group">
-                        <label  for="cpf">CPF (Somente numeros):</label>
+                        <label  for="cpf">CPF (Somente números):</label>
                         <input type="text" required="true" oninput="vCPF(this)" placeholder="Insira seu CPF" class="form-control" id="cpf" name="cpf" />
                     </div>
 
@@ -40,10 +40,10 @@
                         </select>
                     </div>
                     <div class="form-group" style="font-size: 15px;">
-                        <label  for=txtCaptcha3">Não sou um robo:</label>
+                        <label  for=txtCaptcha3">Não sou um robô:</label>
                         <input type="text" disabled="true" id="txtCaptcha3" class="form-control" style=" text-align:center; border:none; font-weight: bold; font-family:Modern" />
                         <input type="button" id="btnrefresh" class="form-control" value="Atualizar" class="btn btn-default " onclick="DrawCaptcha();" />
-                        <input type="text" style="width: 100%;" placeholder="Insira o numero acima"  oninput="check(this)" required  id="txtInput"/> 
+                        <input type="text" style="width: 100%;" placeholder="Insira o número acima"  oninput="check(this)" required  id="txtInput"/> 
                     </div>
                     <center>
                         <div class="btn-group">
