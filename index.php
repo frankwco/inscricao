@@ -171,9 +171,9 @@
                             </center>-->
                             <br />
 
-                            <h3 style="color: graytext; text-align: justify;">
+                            <h3 style="color: graytext; ">
                                 O Agile Tour é uma série de eventos sem fins lucrativos que acontece em diversas cidades de diferentes países entre os meses de outubro a novembro. É considerado a maior conferência de metodologias ágeis no mundo e sua principal missão é conduzir uma comunicação em massa, compartilhar métodos e visões de agilidade, encorajar a liderança em todas as regiões e ajudar alunos, professores, profissionais e negócios locais em sua adoção da agilidade.<br/>
-<br/>
+                                <br/>
                                 <a href="http://agiletour.com.br/2015/paranavai/" target="_blank" ><u>Confiram nossa agenda!!</u></a>
                             </h3>
 
@@ -296,7 +296,15 @@
                 <br />
 
                 <div class="jumbotron" style="background: white; border: 2px #0085C5 solid;" >
-
+                    
+                    <div style="float: right; border: 6px solid #0085C5; border-radius: 10px">
+                         <img src="resources/img/franca.png" style="max-height: 150px;" class="img-responsive" />
+                    </div>
+                   <br />
+                   <br />
+                   <br />
+                   
+                    
                     <h3 style="color: graytext;">
                         Faça sua inscrição para o Agile Tour 2015 - Paranavaí - Contamos com sua presença!
                     </h3>

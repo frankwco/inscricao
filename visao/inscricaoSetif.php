@@ -57,9 +57,9 @@
         
                                     <br />
         
-                                    <center>
-                                        <h4 style="color: graytext;">A demanda por profissionais nas mais diversas áreas da informática crescem expressivamente, entretanto, as melhores vagas são ocupadas por aqueles que possuem maiores e melhores níveis de capacitação. Capacitar-se é um dever constante para todo e qualquer profissional, e em especial, para profissionais desta área. Com este entendimento o eixo de Informação e Comunicação do IFPR Campus Paranavaí realiza todos os anos a Semana de Tecnologia da Informação – SETIF, a oportunidade é ímpar para que alunos, professores e convidados ampliem suas perspectivas profissionais e relações interpessoais por meio da realização de oficinas, palestras, campeonato de jogos e encontros culturais.</h4>  <br />
-                                   </center>
+                                    
+                                        <h3 style="color: graytext;">A demanda por profissionais nas mais diversas áreas da informática cresce expressivamente, entretanto, as melhores vagas são ocupadas por aqueles que possuem maiores e melhores níveis de capacitação. Capacitar-se é um dever constante para todo e qualquer profissional, e em especial, para profissionais desta área. Com este entendimento o eixo de Informação e Comunicação do IFPR Campus Paranavaí realiza todos os anos a Semana de Tecnologia da Informação – SETIF, a oportunidade é ímpar para que alunos, professores e convidados ampliem suas perspectivas profissionais e relações interpessoais por meio da realização de oficinas, palestras, campeonato de jogos e encontros culturais.</h3>  <br />
+                                 
                                     
                                     <hr />
 <!--                                    <h1>CONTINUAÇÃO</h1>-->
