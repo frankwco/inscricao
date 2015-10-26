@@ -153,8 +153,6 @@ class DaoInscricao {
 
             return $f_lista;
 
-
-
 //            return $this->populaModificacao($p_sql->fetch(PDO::FETCH_ASSOC));
         } catch (Exception $e) {
 
@@ -215,6 +213,26 @@ class DaoInscricao {
         try {
 
             $sql = "SELECT * FROM tabinscricao ORDER BY idInscricao";
+            $result = $this->pdo->query($sql);
+            $lista = $result->fetchAll(PDO::FETCH_ASSOC);
+            $f_lista = array();
+
+            foreach ($lista as $l) {
+                $f_lista[] = $this->populaModificacao($l);
+            }
+
+            return $f_lista;
+        } catch (Exception $e) {
+
+            print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.";
+        }
+    }
+    
+    public function buscarPorIdEvento($idEvento) {
+
+        try {
+
+            $sql = "SELECT * FROM tabinscricao where idEvento=".$idEvento." ORDER BY idInscricao";
             $result = $this->pdo->query($sql);
             $lista = $result->fetchAll(PDO::FETCH_ASSOC);
             $f_lista = array();

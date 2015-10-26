@@ -4,7 +4,6 @@ require_once '../dao/DaoInscricao.php';
 require_once '../entidades/Inscricao.php';
 include_once '../banco/Conexao.php';
 echo "<meta charset='UTF-8'/>";
-require "phpmailer/PHPMailerAutoload.php";
 
 try {
 
@@ -13,7 +12,6 @@ try {
 
     $daoInscricao = new DaoInscricao();
     $inscricao = new Inscricao();
-    $tipoEvento="";
 
 
 
@@ -27,7 +25,7 @@ try {
     if (isset($_POST["idEvento"])) {
 
         $inscricao->setIdEvento($_POST["idEvento"]);
-        
+
 //        if($inscricao->getIdEvento()==1){
 //            $tipoEvento="Inscrição Agile Tour";
 //        }
@@ -97,33 +95,53 @@ try {
     $listaEmail = $daoInscricao->buscarPorEmail($_POST["email"], $_POST["idEvento"]);
     $listaCpf = $daoInscricao->buscarPorCpf($_POST["cpf"], $_POST["idEvento"]);
 
-    if (validaCPF($_POST["cpf"])) {
+    //Busca todas as inscrições
+    $listaEventosRealizados = $daoInscricao->buscarPorIdEvento($_POST["idEvento"]);
+    $quantidadeVagas = 1;
+    if ($_POST["idEvento"] == 1) {
+        $quantidadeVagas = 150;
+    }
+    if ($_POST["idEvento"] == 2) {
+        $quantidadeVagas = 150;
+    }
 
-        if (count($listaEmail) > 0) {
+    if ($quantidadeVagas > count($listaEventosRealizados)) {
 
-            echo "<script type='text/javascript'>";
+        if (validaCPF($_POST["cpf"])) {
 
-            echo "alert('Já existe um usuário com esse email!  " . count($listaEmail) . "');";
-            echo "location.href='" . $url . "';";
+            if (count($listaEmail) > 0) {
 
-            echo "</script>";
-        } else if (count($listaCpf) > 0) {
+                echo "<script type='text/javascript'>";
 
-            echo "<script type='text/javascript'>";
+                echo "alert('Já existe um usuário com esse email!  " . count($listaEmail) . "');";
+                echo "location.href='" . $url . "';";
 
-            echo "alert('Já existe um usuário com esse cpf!');";
-            echo "location.href='" . $url . "';";
+                echo "</script>";
+            } else if (count($listaCpf) > 0) {
 
-            echo "</script>";
+                echo "<script type='text/javascript'>";
+
+                echo "alert('Já existe um usuário com esse cpf!');";
+                echo "location.href='" . $url . "';";
+
+                echo "</script>";
+            } else {
+
+                $daoInscricao->inserir($inscricao);
+
+                echo "<script type='text/javascript'>";
+
+                echo "alert('" . $inscricao->getNome() . ", Inscrição Realizada com Sucesso!!');";
+
+
+                echo "location.href='" . $url . "';";
+
+                echo "</script>";
+            }
         } else {
-
-            $daoInscricao->inserir($inscricao);
-
             echo "<script type='text/javascript'>";
 
-            echo "alert('" . $inscricao->getNome() . ", Inscrição Realizada com Sucesso!!');";
-
-
+            echo "alert('CPF Inválido, faça sua inscrição novamente!');";
             echo "location.href='" . $url . "';";
 
             echo "</script>";
@@ -131,7 +149,7 @@ try {
     } else {
         echo "<script type='text/javascript'>";
 
-        echo "alert('CPF Inválido, faça sua inscrição novamente!');";
+        echo "alert('Não possui vagas, aguarde liberação. Avise-nos pelo seguinte email: andre.zavan@ifpr.edu.br');";
         echo "location.href='" . $url . "';";
 
         echo "</script>";
@@ -147,8 +165,6 @@ try {
 
     echo "</script>";
 }
-
-
 
 function validaCPF($cpf = null) {
 

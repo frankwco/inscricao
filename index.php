@@ -44,7 +44,7 @@
             $("#painelInscricaoMiniCurso").hide();
             $("#painelVideoBemVindo").show();
         });
-        
+
         $("#btnPainelMiniCurso").click(function () {
             $("#painelEmBreve").hide();
             $("#painelInscricaoSetif").hide();
@@ -66,9 +66,9 @@
                 <div class="btn-group" role="group">
                     <button id="btnPainelVideoBemVindo" type="button" class="btn btn-primary btn-lg">Agile Tour</button>
                 </div>
-                <div class="btn-group" role="group">
-                    <button id="btnPainelMiniCurso" type="button" class="btn btn-success btn-lg">Minicursos</button>
-                </div>
+                <!--                <div class="btn-group" role="group">
+                                    <button id="btnPainelMiniCurso" type="button" class="btn btn-success btn-lg">Minicursos</button>
+                                </div>-->
                 <div class="btn-group" role="group">
                     <button type="button" id="btnPainelLancametos" class="btn btn-info btn-lg">SETIF</button>
                 </div>
@@ -172,11 +172,8 @@
                             <br />
 
                             <h3 style="color: graytext; text-align: justify;">
-                                Paranavaí-PR, receberá pela primeira vez a edição 2015 do Agile Tour. 
-                                O evento é organizado pelas comunidades ágeis locais, é um evento sem fins
-                                lucatrivos e tem como principal missão criar lideranças em metodologias ágeis no mundo,
-                                além de promover uma comunicação em massa, compartilhando visões e casos de sucesso,
-                                incentivando a adoção dessas técnicas por grupos e empresas.<br/>
+                                O Agile Tour é uma série de eventos sem fins lucrativos que acontece em diversas cidades de diferentes países entre os meses de outubro a novembro. É considerado a maior conferência de metodologias ágeis no mundo e sua principal missão é conduzir uma comunicação em massa, compartilhar métodos e visões de agilidade, encorajar a liderança em todas as regiões e ajudar alunos, professores, profissionais e negócios locais em sua adoção da agilidade.<br/>
+<br/>
                                 <a href="http://agiletour.com.br/2015/paranavai/" target="_blank" ><u>Confiram nossa agenda!!</u></a>
                             </h3>
 
@@ -271,7 +268,7 @@
                                 <th>X</th>
                            </tr>                                      
                         </table>  -->
-<!--                            <hr />-->
+                            <!--                            <hr />-->
                             <center>
                                 <h1 style="color: dodgerblue; ">Patrocinadores</h1>
                             </center>
@@ -280,14 +277,14 @@
                             <br />
                             <center>
                                 <div style="float: left;">
-                                <img src="resources/img/upcode.png" style="max-height: 64px;" class="img-responsive" /> 
+                                    <img src="resources/img/upcode.png" style="max-height: 64px;" class="img-responsive" /> 
                                 </div>
                                 <div style="float: left; width: 30px; height: 10px;"></div>
                                 <div style="float: left;">
-                                <img src="resources/img/objetive.png" style="max-height: 64px;" class="img-responsive" /> 
+                                    <img src="resources/img/objetive.png" style="max-height: 64px;" class="img-responsive" /> 
                                 </div>
                             </center>
-                            
+
                         </div> 
                     </div>
                 </div>
@@ -362,41 +359,42 @@
                             <input type="text" required="true" placeholder="Insira o Nome da Instituição e/ou Organização" class="form-control" id="instituicaoOrganizacao" name="instituicaoOrganizacao" />
                         </div>
                         <br/>
-                        
+
                         <!--<hr style="border: 2px solid black"/>-->
                         <div style="border: 1px solid #0085C5; border-radius: 10px; padding: 2px">
-                        <div class="form-group">
-                            <label  style="color: red;">Pesquisa de Opinião</label>
-                            <label  >*Ajude-nos a propor uma Pós Graduação Lato Sensu (Especialização) no IFPR Campus Paranavaí. No caso de uma possível oferta, escolha duas áreas que venham de encontro com o seu interesse:</label>
-                            <div class="radio">
-                                <label><input required="true"  type="radio" name="cursoPos" value="Programação Web/Programação para Dispositivos Móveis">Programação Web/Programação para Dispositivos Móveis</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="cursoPos" value="Programação Web/Engenharia de Software">Programação Web/Engenharia de Software</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="cursoPos" value="Programação para Dispositivos Móveis/Engenharia de Software">Programação para Dispositivos Móveis/Engenharia de Software</label>
-                            </div>
+                            <div class="form-group">
+                                <label  style="color: red;">Pesquisa de Opinião</label>
+                                <label  >*Ajude-nos a propor uma Pós Graduação Lato Sensu (Especialização) no IFPR Campus Paranavaí. No caso de uma possível oferta, escolha duas áreas que venham de encontro com o seu interesse:</label>
 
-                            <label  for=outraAreaInteresse">Outras Áreas de Interesse:</label>
-                            <input type="text" placeholder="Insira Outras Áreas de Seu Interesse" class="form-control" id="outraAreaInteresse" name="outraAreaInteresse" />
-                            <br/>
+                                <div class="radio">
+                                    <label><input required="true"  type="radio" name="cursoPos" value="Programação Web/Programação para Dispositivos Móveis">Programação Web/Programação para Dispositivos Móveis</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="cursoPos" value="Programação Web/Engenharia de Software">Programação Web/Engenharia de Software</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="cursoPos" value="Programação para Dispositivos Móveis/Engenharia de Software">Programação para Dispositivos Móveis/Engenharia de Software</label>
+                                </div>
 
-                            <label  for=instituicaoOrganizacao">*A oferta seria oportuna em qual horário?</label>
-                            <div class="radio">
-                                <label><input required="true"  type="radio" name="horarioPos" value="Somente aos sábados">Somente aos sábados</label>
+                                <label  for=outraAreaInteresse">Outras Áreas de Interesse:</label>
+                                <input type="text" placeholder="Insira Outras Áreas de Seu Interesse" class="form-control" id="outraAreaInteresse" name="outraAreaInteresse" />
+                                <br/>
+
+                                <label  for=instituicaoOrganizacao">*A oferta seria oportuna em qual horário?</label>
+                                <div class="radio">
+                                    <label><input required="true"  type="radio" name="horarioPos" value="Somente aos sábados">Somente aos sábados</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="horarioPos" value="Sexta-feira a noite e aos sábados">Sexta-feira a noite e aos sábados</label>
+                                </div>
+
+
+
                             </div>
-                            <div class="radio">
-                                <label><input type="radio" name="horarioPos" value="Sexta-feira a noite e aos sábados">Sexta-feira a noite e aos sábados</label>
-                            </div>
-
-
-
                         </div>
-                        </div>
-                         <!--<hr style="border: 2px solid black"/>-->
+                        <!--<hr style="border: 2px solid black"/>-->
 
-                         <br/>
+                        <br/>
 
 
                         <div class="form-group" style="font-size: 15px;">
@@ -406,10 +404,24 @@
                             <input type="text" style="width: 100%;" placeholder="Insira o número acima"  oninput="check(this)" required  id="txtInput"/> 
                         </div>
 
+                        <script>function HabiDsabi() {
+                                if (document.getElementById('habi').checked == true) {
+                                    document.getElementById('envia').disabled = ""
+                                }
+                                if (document.getElementById('habi').checked == false) {
+                                    document.getElementById('envia').disabled = "disabled"
+                                }
+                            }</script>
+
+                        <label  style="color: red;"><input type="checkbox" name="habi" id="habi" onClick="HabiDsabi()">&nbsp;&nbsp;&nbsp;Declaro para os devidos fins, que após realizar minha inscrição comprometo-me a 
+                            estar presente neste evento e participar de toda sua programação.</label>
+
+
+
 
                         <center>
                             <div class="btn-group">
-                                <button type="submit" class="btn btn-success btn-lg" onclick="ValidCaptcha();">
+                                <button disabled="true" name="envia" id="envia" type="submit" class="btn btn-success btn-lg" onclick="ValidCaptcha();">
                                     <span class="glyphicon glyphicon-ok"></span>
                                     Efetuar a Inscrição</button> 
                                 <button type="reset" class="btn btn-danger btn-lg">
@@ -464,11 +476,11 @@
 
 
         <!--Inscrição para o AGILE TOUR-->
-        <?php // require './visao/inscricaoAgile.php'; ?>
+        <?php // require './visao/inscricaoAgile.php';  ?>
 
         <!--Inscricao para a SETIF-->
         <?php require './visao/inscricaoSetif.php'; ?>
-        
+
         <!--Inscricao para a SETIF-->
         <?php require './visao/inscricaoMiniCurso.php'; ?>
 
